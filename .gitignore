@@ -1,5 +1,14 @@
 ## Large files
 .DS_*
+*/cache
+/outputs/**
+!/outputs/**/
+!/outputs/**/.gitkeep
+
+/simulation/outputs/**
+!/simulation/outputs/**/
+!/simulation/outputs/**/.gitkeep
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
