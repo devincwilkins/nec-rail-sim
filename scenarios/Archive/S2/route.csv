@@ -1,0 +1,15 @@
+Route_id,Stop_id_list,Skip_id_list,Route_desc,Direc,Pair_id,Express_service
+1,"36,35,34,33,32,31,30,29,28,27,26,24,22,21,20,19",,WorcesterToSouthStation,1,2,0
+2,"1,2,3,4,6,8,9,10,11,12,13,14,15,16,17,18",,SouthStationToWorcester,0,1,0
+3,"36,35,34,33,32,31,30,29,28,27,26,24,22,21,20,19",24,InboundNewtonSkip,1,4,0
+4,"1,2,3,4,6,8,9,10,11,12,13,14,15,16,17,18",6,OutboundNewtonSkip,0,3,0
+5,"31,30,29,28,27,26,24,22,21,20,19",,FraminghamToSouthStation,1,6,0
+6,"1,2,3,4,6,8,9,10,11,12,13",,SouthStationToFramingham,0,5,0
+7,"36,35,34,33,32,31,30,29,28,27,26,24,22,21,20,19","29,28,27,26,24",SkipNatickCenterThroughNewtonville,1,8,0
+8,"1,2,3,4,6,8,9,10,11,12,13,14,15,16,17,18","6,8,9,10,11",SkipNewtonvilleThroughNatickCenter,0,7,0
+9,"31,30,29,28,27,26,24,22,21,20,19",24,FraminghamToSouthStationNewtonSkip,1,10,0
+10,"1,2,3,4,6,8,9,10,11,12,13",6,SouthStationToFraminghamNewtonSkip,0,9,0
+11,"36,35,34,33,32,31,30,29,28,27,26,24,22,21,20,19","35,34,33,32,30,29,28,27,26,24,22",InboundHeartToHub,1,12,1
+12,"1,2,3,4,6,8,9,10,11,12,13,14,15,16,17,18","4,6,8,9,10,11,12,14,15,16,17",OutboundHeartToHub,0,11,1
+13,"24,22,21,20,19",,InnerCoreInbound,1,14,0
+14,"1,2,3,4,6",,InnerCoreOutbound,0,13,0

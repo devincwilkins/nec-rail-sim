@@ -1,0 +1,10 @@
+﻿TrainID,TrainName,RelativeFreq,Origin,A,B,C
+1,LocalCR,4,A,None,"30,36",None
+1,LocalCR,4,B,None,"18,24",None
+1,LocalCR,4,C,None,None,None
+2,XpressCR,4,A,None,"24,28",None
+2,XpressCR,4,B,None,"14,20","20,24"
+2,XpressCR,4,C,None,None,None
+3,HtH,1,A,None,"24,28",None
+3,HtH,1,B,None,"14,20","14,18"
+3,HtH,1,C,None,None,None

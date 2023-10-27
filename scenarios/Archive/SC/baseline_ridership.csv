@@ -1,0 +1,1152 @@
+originname,destinationname,hour,pax
+Ashland,Back Bay,5,10
+Ashland,Back Bay,6,4
+Ashland,Back Bay,7,28
+Ashland,Back Bay,8,10
+Ashland,Back Bay,11,2
+Ashland,Back Bay,14,2
+Ashland,Back Bay,15,2
+Ashland,Back Bay,16,18
+Ashland,Back Bay,17,12
+Ashland,Back Bay,18,4
+Ashland,Back Bay,19,2
+Ashland,Back Bay,20,2
+Ashland,Grafton,10,4
+Ashland,Lansdowne,6,42
+Ashland,Lansdowne,7,82
+Ashland,Lansdowne,8,18
+Ashland,Lansdowne,10,10
+Ashland,Lansdowne,11,2
+Ashland,Lansdowne,14,8
+Ashland,Lansdowne,16,2
+Ashland,Lansdowne,17,8
+Ashland,Lansdowne,19,34
+Ashland,South Station,5,34
+Ashland,South Station,6,24
+Ashland,South Station,7,8
+Ashland,South Station,8,2
+Ashland,South Station,9,4
+Ashland,South Station,10,2
+Ashland,South Station,11,2
+Ashland,South Station,12,2
+Ashland,South Station,15,8
+Ashland,South Station,16,8
+Ashland,South Station,17,2
+Ashland,South Station,18,8
+Ashland,South Station,19,2
+Ashland,South Station,20,8
+Ashland,South Station,21,2
+Ashland,South Station,22,2
+Ashland,South Station,23,4
+Ashland,Wellesley Square,9,14
+Ashland,Worcester,17,12
+Ashland,Worcester,20,12
+Auburndale,Back Bay,6,2
+Auburndale,Back Bay,7,4
+Auburndale,Back Bay,8,8
+Auburndale,Back Bay,9,2
+Auburndale,Back Bay,15,12
+Auburndale,Back Bay,16,10
+Auburndale,Back Bay,17,4
+Auburndale,Back Bay,18,2
+Auburndale,Lansdowne,6,14
+Auburndale,Lansdowne,13,6
+Auburndale,Lansdowne,16,2
+Auburndale,Lansdowne,18,2
+Auburndale,South Station,5,2
+Auburndale,South Station,6,6
+Auburndale,South Station,7,4
+Auburndale,South Station,8,60
+Auburndale,South Station,9,16
+Auburndale,South Station,11,2
+Auburndale,South Station,13,2
+Auburndale,South Station,15,2
+Auburndale,South Station,16,18
+Auburndale,South Station,17,12
+Auburndale,South Station,18,2
+Auburndale,South Station,19,2
+Auburndale,Worcester,15,6
+Auburndale,Worcester,17,28
+Auburndale,Worcester,19,6
+Auburndale,Worcester,21,2
+Auburndale,Worcester,22,10
+Back Bay,Ashland,5,56
+Back Bay,Ashland,6,46
+Back Bay,Ashland,7,10
+Back Bay,Ashland,10,2
+Back Bay,Ashland,11,4
+Back Bay,Ashland,12,6
+Back Bay,Ashland,13,32
+Back Bay,Ashland,14,20
+Back Bay,Ashland,15,4
+Back Bay,Ashland,16,4
+Back Bay,Ashland,17,4
+Back Bay,Ashland,18,6
+Back Bay,Ashland,19,20
+Back Bay,Ashland,20,18
+Back Bay,Ashland,21,8
+Back Bay,Ashland,22,2
+Back Bay,Auburndale,7,2
+Back Bay,Auburndale,8,2
+Back Bay,Auburndale,9,10
+Back Bay,Auburndale,11,12
+Back Bay,Auburndale,14,2
+Back Bay,Auburndale,16,2
+Back Bay,Auburndale,17,4
+Back Bay,Auburndale,18,2
+Back Bay,Auburndale,19,2
+Back Bay,Auburndale,20,14
+Back Bay,Boston Landing,6,32
+Back Bay,Boston Landing,7,88
+Back Bay,Boston Landing,8,36
+Back Bay,Boston Landing,10,10
+Back Bay,Boston Landing,12,2
+Back Bay,Boston Landing,13,2
+Back Bay,Boston Landing,15,4
+Back Bay,Boston Landing,16,2
+Back Bay,Boston Landing,17,6
+Back Bay,Boston Landing,18,12
+Back Bay,Boston Landing,19,18
+Back Bay,Boston Landing,22,40
+Back Bay,Framingham,6,28
+Back Bay,Framingham,7,6
+Back Bay,Framingham,8,2
+Back Bay,Framingham,9,4
+Back Bay,Framingham,11,2
+Back Bay,Framingham,12,2
+Back Bay,Framingham,13,8
+Back Bay,Framingham,15,8
+Back Bay,Framingham,16,2
+Back Bay,Framingham,17,4
+Back Bay,Framingham,18,8
+Back Bay,Framingham,19,10
+Back Bay,Framingham,20,2
+Back Bay,Framingham,21,2
+Back Bay,Framingham,22,2
+Back Bay,Grafton,6,4
+Back Bay,Grafton,7,22
+Back Bay,Grafton,11,48
+Back Bay,Grafton,15,8
+Back Bay,Grafton,16,6
+Back Bay,Grafton,17,2
+Back Bay,Grafton,18,4
+Back Bay,Grafton,19,8
+Back Bay,Grafton,20,34
+Back Bay,Natick Center,6,14
+Back Bay,Natick Center,7,8
+Back Bay,Natick Center,8,2
+Back Bay,Natick Center,9,2
+Back Bay,Natick Center,11,2
+Back Bay,Natick Center,12,4
+Back Bay,Natick Center,13,2
+Back Bay,Natick Center,15,2
+Back Bay,Natick Center,16,2
+Back Bay,Natick Center,17,6
+Back Bay,Natick Center,18,24
+Back Bay,Natick Center,19,18
+Back Bay,Natick Center,20,4
+Back Bay,Natick Center,23,2
+Back Bay,Newtonville,7,2
+Back Bay,Newtonville,8,4
+Back Bay,Newtonville,10,4
+Back Bay,Newtonville,11,6
+Back Bay,Newtonville,13,8
+Back Bay,Newtonville,16,8
+Back Bay,Newtonville,17,2
+Back Bay,Newtonville,18,8
+Back Bay,Newtonville,19,2
+Back Bay,Southborough,5,2
+Back Bay,Southborough,6,2
+Back Bay,Southborough,7,34
+Back Bay,Southborough,8,34
+Back Bay,Southborough,9,44
+Back Bay,Southborough,10,12
+Back Bay,Southborough,11,2
+Back Bay,Southborough,14,4
+Back Bay,Southborough,15,2
+Back Bay,Southborough,16,6
+Back Bay,Southborough,17,4
+Back Bay,Southborough,18,10
+Back Bay,Southborough,19,10
+Back Bay,Wellesley Farms,6,24
+Back Bay,Wellesley Farms,7,4
+Back Bay,Wellesley Farms,8,2
+Back Bay,Wellesley Farms,11,2
+Back Bay,Wellesley Farms,13,6
+Back Bay,Wellesley Farms,15,6
+Back Bay,Wellesley Farms,16,4
+Back Bay,Wellesley Farms,17,4
+Back Bay,Wellesley Farms,18,2
+Back Bay,Wellesley Hills,6,2
+Back Bay,Wellesley Hills,7,4
+Back Bay,Wellesley Hills,8,6
+Back Bay,Wellesley Hills,11,2
+Back Bay,Wellesley Hills,15,2
+Back Bay,Wellesley Hills,16,2
+Back Bay,Wellesley Hills,17,2
+Back Bay,Wellesley Hills,18,4
+Back Bay,Wellesley Hills,19,20
+Back Bay,Wellesley Square,6,10
+Back Bay,Wellesley Square,7,4
+Back Bay,Wellesley Square,8,4
+Back Bay,Wellesley Square,14,2
+Back Bay,Wellesley Square,15,4
+Back Bay,Wellesley Square,16,6
+Back Bay,Wellesley Square,17,10
+Back Bay,Wellesley Square,18,4
+Back Bay,Wellesley Square,19,6
+Back Bay,Wellesley Square,20,2
+Back Bay,West Natick,6,2
+Back Bay,West Natick,7,6
+Back Bay,West Natick,8,36
+Back Bay,West Natick,9,28
+Back Bay,West Natick,13,2
+Back Bay,West Natick,14,4
+Back Bay,West Natick,15,2
+Back Bay,West Natick,16,22
+Back Bay,West Natick,17,88
+Back Bay,West Natick,18,52
+Back Bay,West Natick,19,14
+Back Bay,West Natick,20,6
+Back Bay,West Natick,21,2
+Back Bay,West Natick,22,2
+Back Bay,West Natick,23,2
+Back Bay,West Newton,5,6
+Back Bay,West Newton,6,4
+Back Bay,West Newton,7,30
+Back Bay,West Newton,8,4
+Back Bay,West Newton,16,4
+Back Bay,West Newton,17,2
+Back Bay,West Newton,18,6
+Back Bay,West Newton,19,10
+Back Bay,West Newton,20,2
+Back Bay,Westborough,6,2
+Back Bay,Westborough,7,2
+Back Bay,Westborough,9,4
+Back Bay,Westborough,13,2
+Back Bay,Westborough,15,2
+Back Bay,Westborough,16,14
+Back Bay,Westborough,17,28
+Back Bay,Westborough,18,62
+Back Bay,Westborough,19,10
+Back Bay,Westborough,20,2
+Back Bay,Westborough,21,2
+Back Bay,Worcester,6,2
+Back Bay,Worcester,7,2
+Back Bay,Worcester,8,8
+Back Bay,Worcester,9,18
+Back Bay,Worcester,10,18
+Back Bay,Worcester,12,8
+Back Bay,Worcester,13,2
+Back Bay,Worcester,15,2
+Back Bay,Worcester,16,10
+Back Bay,Worcester,17,2
+Back Bay,Worcester,18,2
+Back Bay,Worcester,19,2
+Back Bay,Worcester,20,4
+Back Bay,Worcester,21,4
+Back Bay,Worcester,22,2
+Boston Landing,Ashland,16,2
+Boston Landing,Ashland,17,2
+Boston Landing,Auburndale,9,42
+Boston Landing,Back Bay,6,26
+Boston Landing,Back Bay,7,10
+Boston Landing,Back Bay,8,2
+Boston Landing,Back Bay,10,2
+Boston Landing,Back Bay,15,2
+Boston Landing,Back Bay,16,16
+Boston Landing,Back Bay,17,36
+Boston Landing,Back Bay,18,18
+Boston Landing,Framingham,7,2
+Boston Landing,Framingham,8,8
+Boston Landing,Framingham,10,6
+Boston Landing,Framingham,14,2
+Boston Landing,Framingham,15,2
+Boston Landing,Framingham,17,2
+Boston Landing,Grafton,9,2
+Boston Landing,Grafton,15,2
+Boston Landing,Grafton,18,2
+Boston Landing,Lansdowne,7,2
+Boston Landing,Lansdowne,8,8
+Boston Landing,Lansdowne,12,26
+Boston Landing,Lansdowne,17,12
+Boston Landing,Lansdowne,18,4
+Boston Landing,Natick Center,7,2
+Boston Landing,Natick Center,18,2
+Boston Landing,Natick Center,20,6
+Boston Landing,South Station,5,6
+Boston Landing,South Station,6,8
+Boston Landing,South Station,7,24
+Boston Landing,South Station,8,6
+Boston Landing,South Station,10,6
+Boston Landing,South Station,13,6
+Boston Landing,South Station,15,2
+Boston Landing,South Station,16,4
+Boston Landing,South Station,17,2
+Boston Landing,South Station,18,2
+Boston Landing,South Station,19,4
+Boston Landing,South Station,21,18
+Boston Landing,Wellesley Hills,7,4
+Boston Landing,Wellesley Hills,9,2
+Boston Landing,Wellesley Hills,17,2
+Boston Landing,Wellesley Hills,21,2
+Boston Landing,Wellesley Square,7,2
+Boston Landing,Wellesley Square,9,4
+Boston Landing,Wellesley Square,16,4
+Boston Landing,Wellesley Square,17,24
+Boston Landing,Wellesley Square,18,40
+Boston Landing,Wellesley Square,19,32
+Boston Landing,Wellesley Square,22,16
+Boston Landing,West Natick,16,4
+Boston Landing,West Natick,18,8
+Boston Landing,Westborough,15,2
+Boston Landing,Westborough,16,4
+Boston Landing,Worcester,6,4
+Boston Landing,Worcester,7,14
+Boston Landing,Worcester,8,24
+Boston Landing,Worcester,12,26
+Boston Landing,Worcester,16,2
+Boston Landing,Worcester,17,2
+Framingham,Auburndale,16,2
+Framingham,Back Bay,5,4
+Framingham,Back Bay,6,24
+Framingham,Back Bay,7,10
+Framingham,Back Bay,8,2
+Framingham,Back Bay,9,2
+Framingham,Back Bay,13,6
+Framingham,Back Bay,14,4
+Framingham,Back Bay,15,4
+Framingham,Back Bay,16,20
+Framingham,Back Bay,17,8
+Framingham,Back Bay,18,6
+Framingham,Back Bay,20,2
+Framingham,Boston Landing,7,4
+Framingham,Boston Landing,9,4
+Framingham,Boston Landing,18,24
+Framingham,Grafton,16,50
+Framingham,Lansdowne,4,30
+Framingham,Lansdowne,6,2
+Framingham,Lansdowne,7,6
+Framingham,Lansdowne,8,6
+Framingham,Lansdowne,11,2
+Framingham,Lansdowne,14,2
+Framingham,Lansdowne,15,10
+Framingham,Lansdowne,16,28
+Framingham,Lansdowne,17,14
+Framingham,Lansdowne,18,12
+Framingham,Lansdowne,20,2
+Framingham,Lansdowne,22,2
+Framingham,Natick Center,9,12
+Framingham,Natick Center,14,10
+Framingham,Newtonville,7,2
+Framingham,Newtonville,10,2
+Framingham,South Station,5,2
+Framingham,South Station,6,4
+Framingham,South Station,7,10
+Framingham,South Station,8,4
+Framingham,South Station,9,2
+Framingham,South Station,10,16
+Framingham,South Station,11,10
+Framingham,South Station,12,4
+Framingham,South Station,13,10
+Framingham,South Station,14,22
+Framingham,South Station,15,2
+Framingham,South Station,16,2
+Framingham,South Station,17,2
+Framingham,South Station,18,20
+Framingham,South Station,20,40
+Framingham,South Station,21,2
+Framingham,South Station,22,4
+Framingham,Wellesley Farms,6,6
+Framingham,Wellesley Farms,7,6
+Framingham,Wellesley Farms,12,8
+Framingham,Wellesley Square,6,22
+Framingham,Wellesley Square,18,18
+Framingham,West Newton,7,4
+Framingham,West Newton,18,2
+Framingham,Westborough,6,2
+Framingham,Worcester,6,4
+Framingham,Worcester,7,2
+Framingham,Worcester,15,2
+Framingham,Worcester,18,40
+Grafton,Auburndale,7,74
+Grafton,Back Bay,4,10
+Grafton,Back Bay,5,2
+Grafton,Back Bay,6,2
+Grafton,Back Bay,7,8
+Grafton,Back Bay,9,10
+Grafton,Back Bay,15,16
+Grafton,Back Bay,16,22
+Grafton,Back Bay,17,12
+Grafton,Back Bay,18,2
+Grafton,Back Bay,19,2
+Grafton,Boston Landing,7,2
+Grafton,Framingham,18,2
+Grafton,Lansdowne,5,4
+Grafton,Lansdowne,7,18
+Grafton,Lansdowne,17,14
+Grafton,Lansdowne,18,16
+Grafton,South Station,5,6
+Grafton,South Station,6,2
+Grafton,South Station,7,6
+Grafton,South Station,9,2
+Grafton,South Station,11,8
+Grafton,South Station,12,6
+Grafton,South Station,13,14
+Grafton,South Station,15,2
+Grafton,South Station,16,2
+Grafton,South Station,17,2
+Grafton,South Station,18,10
+Grafton,Southborough,17,2
+Grafton,Wellesley Farms,7,2
+Grafton,Wellesley Hills,12,2
+Grafton,Wellesley Square,7,4
+Lansdowne,Ashland,9,4
+Lansdowne,Ashland,10,2
+Lansdowne,Ashland,12,6
+Lansdowne,Ashland,14,26
+Lansdowne,Ashland,15,48
+Lansdowne,Ashland,16,28
+Lansdowne,Ashland,17,74
+Lansdowne,Ashland,18,8
+Lansdowne,Ashland,19,4
+Lansdowne,Ashland,20,4
+Lansdowne,Auburndale,16,12
+Lansdowne,Auburndale,17,32
+Lansdowne,Auburndale,18,6
+Lansdowne,Boston Landing,7,22
+Lansdowne,Boston Landing,8,22
+Lansdowne,Boston Landing,10,2
+Lansdowne,Boston Landing,15,2
+Lansdowne,Boston Landing,16,2
+Lansdowne,Boston Landing,17,1
+Lansdowne,Boston Landing,18,1
+Lansdowne,Framingham,7,1
+Lansdowne,Framingham,9,2
+Lansdowne,Framingham,13,1
+Lansdowne,Framingham,14,1
+Lansdowne,Framingham,15,1
+Lansdowne,Framingham,16,5
+Lansdowne,Framingham,17,6
+Lansdowne,Framingham,18,2
+Lansdowne,Framingham,19,1
+Lansdowne,Framingham,20,2
+Lansdowne,Grafton,7,3
+Lansdowne,Grafton,9,1
+Lansdowne,Grafton,11,1
+Lansdowne,Grafton,14,1
+Lansdowne,Grafton,16,2
+Lansdowne,Grafton,17,4
+Lansdowne,Grafton,18,1
+Lansdowne,Grafton,21,1
+Lansdowne,Natick Center,6,2
+Lansdowne,Natick Center,7,1
+Lansdowne,Natick Center,9,1
+Lansdowne,Natick Center,10,1
+Lansdowne,Natick Center,12,1
+Lansdowne,Natick Center,15,1
+Lansdowne,Natick Center,16,1
+Lansdowne,Natick Center,17,3
+Lansdowne,Natick Center,18,4
+Lansdowne,Natick Center,20,1
+Lansdowne,Newtonville,10,1
+Lansdowne,Newtonville,14,2
+Lansdowne,Newtonville,16,1
+Lansdowne,Newtonville,17,1
+Lansdowne,Newtonville,18,1
+Lansdowne,Southborough,7,2
+Lansdowne,Southborough,9,4
+Lansdowne,Southborough,13,1
+Lansdowne,Southborough,16,3
+Lansdowne,Southborough,17,4
+Lansdowne,Southborough,18,1
+Lansdowne,Southborough,19,1
+Lansdowne,Wellesley Farms,16,2
+Lansdowne,Wellesley Farms,18,1
+Lansdowne,Wellesley Hills,7,1
+Lansdowne,Wellesley Hills,8,2
+Lansdowne,Wellesley Hills,9,1
+Lansdowne,Wellesley Hills,11,1
+Lansdowne,Wellesley Hills,18,1
+Lansdowne,Wellesley Hills,19,1
+Lansdowne,Wellesley Square,7,1
+Lansdowne,Wellesley Square,16,2
+Lansdowne,Wellesley Square,17,1
+Lansdowne,Wellesley Square,18,4
+Lansdowne,Wellesley Square,20,1
+Lansdowne,West Natick,9,1
+Lansdowne,West Natick,11,1
+Lansdowne,West Natick,15,2
+Lansdowne,West Natick,16,2
+Lansdowne,West Natick,17,4
+Lansdowne,West Natick,18,2
+Lansdowne,West Newton,15,1
+Lansdowne,West Newton,18,1
+Lansdowne,Westborough,10,1
+Lansdowne,Westborough,12,2
+Lansdowne,Westborough,16,3
+Lansdowne,Westborough,17,3
+Lansdowne,Westborough,18,3
+Lansdowne,Westborough,19,1
+Lansdowne,Worcester,5,1
+Lansdowne,Worcester,6,1
+Lansdowne,Worcester,7,1
+Lansdowne,Worcester,8,1
+Lansdowne,Worcester,9,1
+Lansdowne,Worcester,10,3
+Lansdowne,Worcester,12,1
+Lansdowne,Worcester,13,1
+Lansdowne,Worcester,14,1
+Lansdowne,Worcester,15,5
+Lansdowne,Worcester,16,1
+Lansdowne,Worcester,17,7
+Lansdowne,Worcester,18,4
+Lansdowne,Worcester,19,1
+Lansdowne,Worcester,20,2
+Lansdowne,Worcester,21,2
+Lansdowne,Worcester,22,1
+Natick Center,Auburndale,9,1
+Natick Center,Back Bay,6,3
+Natick Center,Back Bay,7,12
+Natick Center,Back Bay,8,9
+Natick Center,Back Bay,9,2
+Natick Center,Back Bay,11,1
+Natick Center,Back Bay,13,1
+Natick Center,Back Bay,14,2
+Natick Center,Back Bay,15,2
+Natick Center,Back Bay,16,3
+Natick Center,Back Bay,17,4
+Natick Center,Back Bay,18,4
+Natick Center,Back Bay,19,1
+Natick Center,Boston Landing,7,4
+Natick Center,Boston Landing,8,1
+Natick Center,Boston Landing,17,1
+Natick Center,Lansdowne,6,1
+Natick Center,Lansdowne,7,6
+Natick Center,Lansdowne,8,1
+Natick Center,Lansdowne,14,1
+Natick Center,Lansdowne,15,1
+Natick Center,Lansdowne,16,1
+Natick Center,South Station,5,1
+Natick Center,South Station,6,17
+Natick Center,South Station,7,17
+Natick Center,South Station,8,22
+Natick Center,South Station,9,6
+Natick Center,South Station,10,1
+Natick Center,South Station,11,2
+Natick Center,South Station,12,1
+Natick Center,South Station,13,3
+Natick Center,South Station,14,2
+Natick Center,South Station,15,5
+Natick Center,South Station,16,5
+Natick Center,South Station,17,12
+Natick Center,South Station,18,2
+Natick Center,South Station,20,1
+Natick Center,South Station,22,1
+Natick Center,Wellesley Hills,6,1
+Natick Center,Wellesley Hills,18,1
+Natick Center,West Natick,20,1
+Natick Center,Worcester,13,1
+Natick Center,Worcester,15,4
+Natick Center,Worcester,16,1
+Natick Center,Worcester,18,1
+Newtonville,Ashland,10,1
+Newtonville,Auburndale,18,1
+Newtonville,Back Bay,6,3
+Newtonville,Back Bay,7,3
+Newtonville,Back Bay,8,2
+Newtonville,Back Bay,9,2
+Newtonville,Back Bay,11,1
+Newtonville,Back Bay,12,1
+Newtonville,Back Bay,16,2
+Newtonville,Back Bay,17,3
+Newtonville,Back Bay,18,1
+Newtonville,Back Bay,20,1
+Newtonville,Back Bay,21,1
+Newtonville,Boston Landing,9,1
+Newtonville,Framingham,6,1
+Newtonville,Framingham,10,1
+Newtonville,Grafton,14,1
+Newtonville,Grafton,19,1
+Newtonville,Lansdowne,8,1
+Newtonville,Lansdowne,10,1
+Newtonville,Lansdowne,17,1
+Newtonville,Natick Center,17,1
+Newtonville,South Station,6,2
+Newtonville,South Station,7,10
+Newtonville,South Station,8,5
+Newtonville,South Station,9,2
+Newtonville,South Station,11,2
+Newtonville,South Station,14,1
+Newtonville,South Station,15,2
+Newtonville,South Station,16,3
+Newtonville,South Station,17,5
+Newtonville,South Station,18,2
+Newtonville,South Station,19,3
+Newtonville,South Station,22,1
+Newtonville,South Station,23,1
+Newtonville,Worcester,7,1
+Newtonville,Worcester,10,1
+South Station,Ashland,5,2
+South Station,Ashland,6,10
+South Station,Ashland,7,21
+South Station,Ashland,8,1
+South Station,Ashland,9,7
+South Station,Ashland,10,1
+South Station,Ashland,11,5
+South Station,Ashland,12,1
+South Station,Ashland,13,2
+South Station,Ashland,14,1
+South Station,Ashland,15,10
+South Station,Ashland,16,42
+South Station,Ashland,17,52
+South Station,Ashland,18,25
+South Station,Ashland,19,4
+South Station,Ashland,20,4
+South Station,Ashland,21,2
+South Station,Ashland,22,2
+South Station,Auburndale,6,2
+South Station,Auburndale,7,2
+South Station,Auburndale,8,6
+South Station,Auburndale,9,3
+South Station,Auburndale,11,3
+South Station,Auburndale,13,5
+South Station,Auburndale,15,2
+South Station,Auburndale,16,7
+South Station,Auburndale,17,21
+South Station,Auburndale,18,9
+South Station,Auburndale,19,2
+South Station,Auburndale,21,2
+South Station,Boston Landing,6,3
+South Station,Boston Landing,7,18
+South Station,Boston Landing,8,14
+South Station,Boston Landing,10,1
+South Station,Boston Landing,13,2
+South Station,Boston Landing,15,1
+South Station,Boston Landing,16,11
+South Station,Boston Landing,17,44
+South Station,Boston Landing,18,26
+South Station,Boston Landing,19,7
+South Station,Boston Landing,20,3
+South Station,Boston Landing,21,1
+South Station,Boston Landing,22,1
+South Station,Boston Landing,23,1
+South Station,Framingham,5,2
+South Station,Framingham,6,6
+South Station,Framingham,7,17
+South Station,Framingham,8,4
+South Station,Framingham,9,6
+South Station,Framingham,10,3
+South Station,Framingham,11,2
+South Station,Framingham,12,3
+South Station,Framingham,13,2
+South Station,Framingham,15,4
+South Station,Framingham,16,34
+South Station,Framingham,17,56
+South Station,Framingham,18,36
+South Station,Framingham,19,5
+South Station,Framingham,20,4
+South Station,Framingham,21,2
+South Station,Grafton,5,1
+South Station,Grafton,6,12
+South Station,Grafton,7,12
+South Station,Grafton,9,4
+South Station,Grafton,10,1
+South Station,Grafton,13,2
+South Station,Grafton,14,1
+South Station,Grafton,15,5
+South Station,Grafton,16,28
+South Station,Grafton,17,24
+South Station,Grafton,18,19
+South Station,Grafton,19,6
+South Station,Grafton,21,3
+South Station,Natick Center,5,1
+South Station,Natick Center,6,8
+South Station,Natick Center,7,7
+South Station,Natick Center,8,13
+South Station,Natick Center,9,6
+South Station,Natick Center,11,2
+South Station,Natick Center,13,2
+South Station,Natick Center,14,2
+South Station,Natick Center,15,4
+South Station,Natick Center,16,18
+South Station,Natick Center,17,41
+South Station,Natick Center,18,19
+South Station,Natick Center,19,1
+South Station,Natick Center,20,3
+South Station,Natick Center,21,5
+South Station,Natick Center,22,3
+South Station,Newtonville,7,7
+South Station,Newtonville,8,4
+South Station,Newtonville,9,3
+South Station,Newtonville,10,1
+South Station,Newtonville,13,1
+South Station,Newtonville,15,1
+South Station,Newtonville,16,14
+South Station,Newtonville,17,22
+South Station,Newtonville,18,14
+South Station,Newtonville,19,2
+South Station,Newtonville,20,2
+South Station,Newtonville,21,1
+South Station,Southborough,5,2
+South Station,Southborough,6,9
+South Station,Southborough,7,16
+South Station,Southborough,8,1
+South Station,Southborough,9,1
+South Station,Southborough,10,1
+South Station,Southborough,11,1
+South Station,Southborough,14,1
+South Station,Southborough,15,11
+South Station,Southborough,16,29
+South Station,Southborough,17,45
+South Station,Southborough,18,26
+South Station,Southborough,19,4
+South Station,Southborough,20,3
+South Station,Southborough,22,1
+South Station,Wellesley Farms,5,1
+South Station,Wellesley Farms,6,3
+South Station,Wellesley Farms,7,11
+South Station,Wellesley Farms,8,8
+South Station,Wellesley Farms,9,2
+South Station,Wellesley Farms,10,1
+South Station,Wellesley Farms,13,3
+South Station,Wellesley Farms,14,1
+South Station,Wellesley Farms,16,12
+South Station,Wellesley Farms,17,31
+South Station,Wellesley Farms,18,20
+South Station,Wellesley Farms,19,3
+South Station,Wellesley Farms,21,1
+South Station,Wellesley Farms,22,1
+South Station,Wellesley Hills,5,1
+South Station,Wellesley Hills,6,2
+South Station,Wellesley Hills,7,7
+South Station,Wellesley Hills,8,4
+South Station,Wellesley Hills,9,2
+South Station,Wellesley Hills,10,1
+South Station,Wellesley Hills,11,1
+South Station,Wellesley Hills,13,2
+South Station,Wellesley Hills,15,4
+South Station,Wellesley Hills,16,9
+South Station,Wellesley Hills,17,15
+South Station,Wellesley Hills,18,12
+South Station,Wellesley Hills,20,3
+South Station,Wellesley Square,5,2
+South Station,Wellesley Square,6,6
+South Station,Wellesley Square,7,17
+South Station,Wellesley Square,8,11
+South Station,Wellesley Square,9,7
+South Station,Wellesley Square,10,1
+South Station,Wellesley Square,11,1
+South Station,Wellesley Square,13,1
+South Station,Wellesley Square,14,1
+South Station,Wellesley Square,15,5
+South Station,Wellesley Square,16,24
+South Station,Wellesley Square,17,37
+South Station,Wellesley Square,18,28
+South Station,Wellesley Square,19,7
+South Station,Wellesley Square,20,4
+South Station,Wellesley Square,21,2
+South Station,West Natick,6,9
+South Station,West Natick,7,15
+South Station,West Natick,8,4
+South Station,West Natick,9,2
+South Station,West Natick,10,1
+South Station,West Natick,11,3
+South Station,West Natick,13,2
+South Station,West Natick,14,2
+South Station,West Natick,15,5
+South Station,West Natick,16,28
+South Station,West Natick,17,51
+South Station,West Natick,18,29
+South Station,West Natick,19,6
+South Station,West Natick,20,4
+South Station,West Natick,21,2
+South Station,West Newton,7,4
+South Station,West Newton,8,4
+South Station,West Newton,9,2
+South Station,West Newton,10,1
+South Station,West Newton,13,1
+South Station,West Newton,14,1
+South Station,West Newton,15,2
+South Station,West Newton,16,8
+South Station,West Newton,17,22
+South Station,West Newton,18,11
+South Station,West Newton,19,5
+South Station,Westborough,5,1
+South Station,Westborough,6,10
+South Station,Westborough,7,30
+South Station,Westborough,8,1
+South Station,Westborough,9,3
+South Station,Westborough,11,1
+South Station,Westborough,12,1
+South Station,Westborough,13,10
+South Station,Westborough,14,3
+South Station,Westborough,15,15
+South Station,Westborough,16,38
+South Station,Westborough,17,55
+South Station,Westborough,18,21
+South Station,Westborough,19,3
+South Station,Westborough,20,2
+South Station,Westborough,21,2
+South Station,Westborough,22,5
+South Station,Worcester,4,2
+South Station,Worcester,5,7
+South Station,Worcester,6,6
+South Station,Worcester,7,9
+South Station,Worcester,8,11
+South Station,Worcester,9,1
+South Station,Worcester,10,9
+South Station,Worcester,11,3
+South Station,Worcester,12,1
+South Station,Worcester,13,2
+South Station,Worcester,14,3
+South Station,Worcester,15,19
+South Station,Worcester,16,33
+South Station,Worcester,17,43
+South Station,Worcester,18,32
+South Station,Worcester,19,23
+South Station,Worcester,20,3
+South Station,Worcester,21,3
+South Station,Worcester,22,5
+South Station,Worcester,23,2
+Southborough,Auburndale,6,2
+Southborough,Back Bay,5,3
+Southborough,Back Bay,6,2
+Southborough,Back Bay,7,15
+Southborough,Back Bay,8,2
+Southborough,Back Bay,9,2
+Southborough,Back Bay,15,1
+Southborough,Back Bay,16,3
+Southborough,Back Bay,17,5
+Southborough,Back Bay,19,1
+Southborough,Back Bay,21,1
+Southborough,Boston Landing,7,1
+Southborough,Boston Landing,16,2
+Southborough,Boston Landing,17,1
+Southborough,Boston Landing,21,1
+Southborough,Lansdowne,6,1
+Southborough,Lansdowne,7,4
+Southborough,Lansdowne,9,1
+Southborough,Lansdowne,17,2
+Southborough,Lansdowne,20,1
+Southborough,South Station,5,7
+Southborough,South Station,6,14
+Southborough,South Station,7,31
+Southborough,South Station,8,5
+Southborough,South Station,9,1
+Southborough,South Station,11,1
+Southborough,South Station,13,1
+Southborough,South Station,14,1
+Southborough,South Station,15,4
+Southborough,South Station,16,9
+Southborough,South Station,17,9
+Southborough,South Station,18,4
+Southborough,South Station,19,1
+Southborough,Wellesley Hills,6,2
+Southborough,Worcester,15,1
+Wellesley Farms,Back Bay,6,1
+Wellesley Farms,Back Bay,7,5
+Wellesley Farms,Back Bay,11,1
+Wellesley Farms,Back Bay,14,1
+Wellesley Farms,Back Bay,16,1
+Wellesley Farms,Back Bay,17,2
+Wellesley Farms,Back Bay,18,2
+Wellesley Farms,Boston Landing,7,1
+Wellesley Farms,Framingham,17,1
+Wellesley Farms,Lansdowne,7,2
+Wellesley Farms,Lansdowne,8,1
+Wellesley Farms,Lansdowne,16,1
+Wellesley Farms,Lansdowne,18,1
+Wellesley Farms,Natick Center,18,1
+Wellesley Farms,South Station,5,1
+Wellesley Farms,South Station,6,1
+Wellesley Farms,South Station,7,21
+Wellesley Farms,South Station,8,13
+Wellesley Farms,South Station,9,5
+Wellesley Farms,South Station,10,1
+Wellesley Farms,South Station,11,1
+Wellesley Farms,South Station,13,1
+Wellesley Farms,South Station,16,8
+Wellesley Farms,South Station,17,18
+Wellesley Farms,South Station,18,9
+Wellesley Farms,South Station,22,1
+Wellesley Farms,West Natick,16,1
+Wellesley Farms,Worcester,9,1
+Wellesley Farms,Worcester,17,1
+Wellesley Hills,Ashland,12,1
+Wellesley Hills,Back Bay,7,4
+Wellesley Hills,Back Bay,8,3
+Wellesley Hills,Back Bay,10,1
+Wellesley Hills,Back Bay,11,1
+Wellesley Hills,Back Bay,16,1
+Wellesley Hills,Boston Landing,7,1
+Wellesley Hills,Boston Landing,8,1
+Wellesley Hills,Boston Landing,10,1
+Wellesley Hills,Boston Landing,21,1
+Wellesley Hills,Framingham,11,1
+Wellesley Hills,Framingham,17,1
+Wellesley Hills,Framingham,21,1
+Wellesley Hills,Lansdowne,7,2
+Wellesley Hills,Natick Center,6,1
+Wellesley Hills,South Station,6,4
+Wellesley Hills,South Station,7,13
+Wellesley Hills,South Station,8,6
+Wellesley Hills,South Station,9,2
+Wellesley Hills,South Station,10,1
+Wellesley Hills,South Station,13,1
+Wellesley Hills,South Station,16,3
+Wellesley Hills,South Station,17,3
+Wellesley Hills,South Station,18,4
+Wellesley Hills,Southborough,20,1
+Wellesley Hills,Wellesley Square,14,1
+Wellesley Hills,Worcester,7,1
+Wellesley Hills,Worcester,11,1
+Wellesley Square,Back Bay,7,12
+Wellesley Square,Back Bay,8,3
+Wellesley Square,Back Bay,9,3
+Wellesley Square,Back Bay,10,3
+Wellesley Square,Back Bay,11,1
+Wellesley Square,Back Bay,12,2
+Wellesley Square,Back Bay,13,1
+Wellesley Square,Back Bay,14,1
+Wellesley Square,Back Bay,16,2
+Wellesley Square,Back Bay,17,9
+Wellesley Square,Back Bay,18,2
+Wellesley Square,Back Bay,19,1
+Wellesley Square,Back Bay,20,1
+Wellesley Square,Boston Landing,8,1
+Wellesley Square,Boston Landing,9,1
+Wellesley Square,Boston Landing,16,2
+Wellesley Square,Framingham,6,2
+Wellesley Square,Framingham,14,2
+Wellesley Square,Framingham,18,1
+Wellesley Square,Framingham,20,1
+Wellesley Square,Lansdowne,6,1
+Wellesley Square,Lansdowne,7,2
+Wellesley Square,Lansdowne,8,2
+Wellesley Square,Lansdowne,9,1
+Wellesley Square,Lansdowne,10,1
+Wellesley Square,Lansdowne,11,1
+Wellesley Square,Lansdowne,17,1
+Wellesley Square,Lansdowne,18,1
+Wellesley Square,Natick Center,18,1
+Wellesley Square,Newtonville,8,1
+Wellesley Square,South Station,5,2
+Wellesley Square,South Station,6,12
+Wellesley Square,South Station,7,20
+Wellesley Square,South Station,8,16
+Wellesley Square,South Station,9,8
+Wellesley Square,South Station,10,2
+Wellesley Square,South Station,11,4
+Wellesley Square,South Station,13,1
+Wellesley Square,South Station,14,2
+Wellesley Square,South Station,15,2
+Wellesley Square,South Station,16,7
+Wellesley Square,South Station,17,12
+Wellesley Square,South Station,18,13
+Wellesley Square,South Station,19,1
+Wellesley Square,South Station,21,1
+Wellesley Square,Southborough,19,1
+Wellesley Square,Wellesley Hills,7,1
+Wellesley Square,Worcester,16,1
+West Natick,Back Bay,5,1
+West Natick,Back Bay,6,2
+West Natick,Back Bay,7,12
+West Natick,Back Bay,8,5
+West Natick,Back Bay,9,1
+West Natick,Back Bay,10,1
+West Natick,Back Bay,11,3
+West Natick,Back Bay,14,2
+West Natick,Back Bay,15,2
+West Natick,Back Bay,16,10
+West Natick,Back Bay,17,4
+West Natick,Back Bay,18,3
+West Natick,Boston Landing,6,1
+West Natick,Boston Landing,7,2
+West Natick,Lansdowne,0,1
+West Natick,Lansdowne,7,4
+West Natick,Lansdowne,8,1
+West Natick,Lansdowne,9,1
+West Natick,Lansdowne,12,1
+West Natick,Lansdowne,17,2
+West Natick,Lansdowne,18,2
+West Natick,Lansdowne,21,1
+West Natick,Newtonville,9,1
+West Natick,South Station,5,2
+West Natick,South Station,6,12
+West Natick,South Station,7,25
+West Natick,South Station,8,15
+West Natick,South Station,9,1
+West Natick,South Station,11,3
+West Natick,South Station,12,3
+West Natick,South Station,13,1
+West Natick,South Station,14,1
+West Natick,South Station,15,5
+West Natick,South Station,16,14
+West Natick,South Station,17,7
+West Natick,South Station,18,6
+West Natick,South Station,19,1
+West Natick,Wellesley Square,7,1
+West Natick,Wellesley Square,8,1
+West Natick,Wellesley Square,11,1
+West Natick,Worcester,15,1
+West Natick,Worcester,17,1
+West Natick,Worcester,18,1
+West Newton,Ashland,15,1
+West Newton,Back Bay,6,1
+West Newton,Back Bay,7,6
+West Newton,Back Bay,8,5
+West Newton,Back Bay,10,1
+West Newton,Back Bay,11,1
+West Newton,Back Bay,15,1
+West Newton,Back Bay,16,2
+West Newton,Back Bay,17,5
+West Newton,Back Bay,18,2
+West Newton,Back Bay,19,1
+West Newton,Framingham,7,1
+West Newton,Framingham,17,1
+West Newton,Lansdowne,7,1
+West Newton,Lansdowne,9,2
+West Newton,Lansdowne,11,1
+West Newton,Lansdowne,16,1
+West Newton,Lansdowne,17,2
+West Newton,Lansdowne,23,1
+West Newton,South Station,7,8
+West Newton,South Station,8,5
+West Newton,South Station,9,2
+West Newton,South Station,16,5
+West Newton,South Station,17,11
+West Newton,South Station,18,1
+West Newton,South Station,19,1
+West Newton,West Natick,14,2
+Westborough,Back Bay,0,1
+Westborough,Back Bay,6,10
+Westborough,Back Bay,7,20
+Westborough,Back Bay,8,1
+Westborough,Back Bay,9,2
+Westborough,Back Bay,12,3
+Westborough,Back Bay,14,3
+Westborough,Back Bay,15,4
+Westborough,Back Bay,16,11
+Westborough,Back Bay,17,9
+Westborough,Back Bay,18,2
+Westborough,Back Bay,19,1
+Westborough,Back Bay,21,1
+Westborough,Boston Landing,7,2
+Westborough,Boston Landing,15,1
+Westborough,Framingham,17,1
+Westborough,Lansdowne,6,1
+Westborough,Lansdowne,7,4
+Westborough,Lansdowne,15,1
+Westborough,Lansdowne,16,1
+Westborough,Lansdowne,19,2
+Westborough,Natick Center,0,1
+Westborough,Natick Center,6,2
+Westborough,Newtonville,9,1
+Westborough,South Station,5,1
+Westborough,South Station,6,20
+Westborough,South Station,7,37
+Westborough,South Station,9,5
+Westborough,South Station,11,1
+Westborough,South Station,12,1
+Westborough,South Station,14,4
+Westborough,South Station,15,5
+Westborough,South Station,16,8
+Westborough,South Station,17,11
+Westborough,South Station,18,6
+Westborough,South Station,19,1
+Westborough,South Station,20,1
+Westborough,West Newton,7,1
+Westborough,West Newton,9,1
+Westborough,Worcester,7,1
+Westborough,Worcester,8,1
+Westborough,Worcester,11,1
+Westborough,Worcester,18,2
+Worcester,Ashland,8,2
+Worcester,Ashland,13,2
+Worcester,Ashland,14,1
+Worcester,Auburndale,15,1
+Worcester,Back Bay,0,1
+Worcester,Back Bay,4,1
+Worcester,Back Bay,5,2
+Worcester,Back Bay,6,9
+Worcester,Back Bay,7,7
+Worcester,Back Bay,8,8
+Worcester,Back Bay,10,3
+Worcester,Back Bay,12,1
+Worcester,Back Bay,13,3
+Worcester,Back Bay,14,1
+Worcester,Back Bay,15,4
+Worcester,Back Bay,16,3
+Worcester,Back Bay,17,7
+Worcester,Back Bay,18,1
+Worcester,Back Bay,19,1
+Worcester,Back Bay,20,1
+Worcester,Boston Landing,7,5
+Worcester,Boston Landing,11,1
+Worcester,Boston Landing,15,1
+Worcester,Boston Landing,17,1
+Worcester,Boston Landing,19,2
+Worcester,Boston Landing,20,2
+Worcester,Framingham,5,2
+Worcester,Framingham,6,3
+Worcester,Framingham,7,4
+Worcester,Framingham,8,5
+Worcester,Framingham,11,1
+Worcester,Framingham,13,1
+Worcester,Framingham,14,1
+Worcester,Framingham,15,3
+Worcester,Framingham,17,1
+Worcester,Framingham,18,1
+Worcester,Framingham,19,2
+Worcester,Framingham,20,1
+Worcester,Lansdowne,5,2
+Worcester,Lansdowne,6,2
+Worcester,Lansdowne,7,2
+Worcester,Lansdowne,8,5
+Worcester,Lansdowne,9,1
+Worcester,Lansdowne,12,2
+Worcester,Lansdowne,13,1
+Worcester,Lansdowne,17,2
+Worcester,Lansdowne,18,2
+Worcester,Lansdowne,19,2
+Worcester,Natick Center,6,2
+Worcester,Natick Center,7,1
+Worcester,Natick Center,8,1
+Worcester,Natick Center,15,1
+Worcester,Natick Center,16,1
+Worcester,Newtonville,16,1
+Worcester,South Station,0,1
+Worcester,South Station,4,3
+Worcester,South Station,5,13
+Worcester,South Station,6,24
+Worcester,South Station,7,14
+Worcester,South Station,8,37
+Worcester,South Station,10,4
+Worcester,South Station,11,2
+Worcester,South Station,12,2
+Worcester,South Station,13,6
+Worcester,South Station,15,16
+Worcester,South Station,16,3
+Worcester,South Station,17,11
+Worcester,South Station,18,11
+Worcester,South Station,19,1
+Worcester,South Station,21,1
+Worcester,South Station,23,1
+Worcester,Southborough,7,2
+Worcester,Southborough,15,3
+Worcester,Wellesley Farms,7,1
+Worcester,Wellesley Farms,19,1
+Worcester,Wellesley Farms,20,1
+Worcester,Wellesley Hills,10,1
+Worcester,Wellesley Square,8,1
+Worcester,Wellesley Square,15,1
+Worcester,West Natick,7,3
+Worcester,West Natick,8,1
+Worcester,West Natick,10,1
+Worcester,West Natick,12,1
+Worcester,West Natick,13,1
+Worcester,Westborough,10,2
+Worcester,Westborough,15,1
+Worcester,Westborough,20,2
+Worcester,Westborough,22,1
