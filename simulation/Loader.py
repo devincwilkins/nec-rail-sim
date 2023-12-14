@@ -57,7 +57,7 @@ def loadStop(simulation, stop_path):
         min_dwell = row.Min_dwell
         turnaround_time = row.Turnaround_time
         capacity = row.Capacity
-        length = row.Length
+        length = float(row.Length)
         east_bound = row.East_bound
         west_bound = row.West_bound
         stop_location = [int(round(float(i))) for i in row.Stop_location.split(',')]
@@ -76,39 +76,42 @@ def loadStop(simulation, stop_path):
 
 def loadTrack(simulation, track_path):
     track_df = pd.read_csv(track_path)
-    track_df = track_df.sort_values(by=['Track_id', 'Start_location']).reset_index()
+    # track_df = track_df.sort_values(by=['Track_id', 'Start_location'],ascending=True).reset_index()
     trackList = []
     track_collect = []
     prev_track = None
     for idx, row in track_df.iterrows(): #[::-1]
         ID = row.Section_id
-        length = row.End_location - row.Start_location
+        length = float(row.End_location - row.Start_location)
         location = row.Start_location
-        max_speed = 79
+        max_speed = 320
         track = row.Track_id
         curvature = row.Curve_degree
         curve_direction = row.Curve_direction
-        cant = row.cant
+        cant = row.Cant
         new_section = Section(ID,length,location, max_speed,track, curvature, curve_direction, cant)
         if idx == track_df.index[-1]:
+            print("collecting track " + str(prev_track))
             components = track_collect
+            print(str(len(components)) + " components ")
             new_track = Track(track,components) #ID is wrong
             simulation.trackDict[track] = new_track
             trackList.append(new_track)
             prev_track = None
+            track_collect = []
         elif prev_track == track or prev_track == None:
             track_collect.append(new_section)
             prev_track = track
         else:
+            print("collecting track " + str(prev_track))
             components = track_collect
-            new_track = Track(track,components) #ID is wrong
-            simulation.trackDict[track] = new_track
+            new_track = Track(prev_track,components) #ID is wrong
+            print(str(len(components)) + " components ")
+            simulation.trackDict[prev_track] = new_track
             trackList.append(new_track)
             prev_track = None
+            track_collect = []
     simulation.tracks = trackList
-    print('TrackDict: ' + str(simulation.trackDict))
-    # print(components)
-    # exit()
 
 def loadRoute(simulation, route_path):
     # list in sequence all stops and blocks that this route will pass
@@ -193,8 +196,9 @@ def loadVehicle(simulation, vehicle_type_path, schedule_path):
         power = row.Power
         mass = row.Mass
         brake_coef = row.Brake_coefficient
+        brake_power = row.Brake_power
         signal_system = row.Signal_system
         new_vehicle = Vehicle(ID, pullout_time, pullin_time, route_sequence, \
         max_speed, max_acc, max_dec, normal_dec, capacity, length, signal_system,\
-            max_cant_deficiency, track_resistance, initial_acceleration, power, mass, brake_coef)
+            max_cant_deficiency, track_resistance, initial_acceleration, power, mass, brake_coef, brake_power)
         simulation.vehicles.append(new_vehicle)

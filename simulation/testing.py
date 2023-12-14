@@ -14,7 +14,7 @@ inputs_dict = dict(zip(inputs_description.Scenario_id.astype(str),inputs_descrip
 
 input_path =  str(Path(__file__).parent.parent) + '/scenarios/' + inputs_dict[scenario]
 # out_path = str(Path(__file__).parent.parent) + '/outputs/'
-out_path = '/Users/work/Documents/GitHub/NYUSim/outputs/'
+out_path = 'outputs/'
 
 start_time = int(settings_dict['start_time'])
 end_time = int(settings_dict['end_time'])

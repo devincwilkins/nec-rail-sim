@@ -1,9 +1,9 @@
 ﻿attribute,value,simulation,scheduler,description
 start_time,0,1,0,"desired start time of day, in seconds"
-end_time,6600,1,0,"desired end time of day, in seconds"
+end_time,10600,1,0,"desired end time of day, in seconds"
 time_step,1,1,0,desired step time (recommended: 1 second)
-scenario,0,1,1,desired scenario (see inputs_description.csv)
-schedule,schedule.csv,1,0,desired schedule file (ensure compatibility with scenario)
+scenario,1,1,1,desired scenario (see inputs_description.csv)
+schedule,schedule_full.csv,1,0,desired schedule file (ensure compatibility with scenario)
 total_vehicle_hours,100,0,1,total available operating hours between all vehicles (for scheduler)
 fleet_size,12,0,1,total available fleet size (for scheduler)
 clock_face,1,0,1,minutes between possible start times

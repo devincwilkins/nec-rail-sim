@@ -66,17 +66,16 @@ class Simulation(object):
                         total_distance = (vehicle.totalDistance)
                     else:
                         total_distance = vehicle.route.length - (vehicle.totalDistance)
-                    block_speed = vehicle.currentHeadLocation.maxSpeed
+                    block_speed = vehicle.updateMaxSpeed()
                 except Exception as e: 
-                    # print('find the exception')
-                    # print(e)
                     try: 
                         location_id = vehicle.currentHeadLocation.id
+                        block_speed = vehicle.updateMaxSpeed()
                     except:
                         location_id = None
+                        block_speed = None
                     location_distance = None
                     total_distance = (vehicle.totalDistance)
-                    block_speed = None
                 try:
                     master_block = vehicle.masterBlock.id
                     sub_block = vehicle.subBlock.id,
@@ -87,8 +86,8 @@ class Simulation(object):
                     signal_name = vehicle.relatedSignal.name
                 except:
                     signal_name = ''
-                self.vehicleInfo.append([self.currentTime,vehicle.id,vehicle.route.id,vehicle.state, vehicle.currentSpeed,vehicle.currentTrack.id, \
-                    block_speed,location_id,location_distance, total_distance, master_block, sub_block, vehicle.route.direction_id, signal_name])
+                self.vehicleInfo.append([self.currentTime,vehicle.id,vehicle.route.id,vehicle.state, vehicle.currentSpeed,vehicle.goalSpeed,vehicle.currentTrack.id, \
+                    block_speed,location_id,location_distance, total_distance, vehicle.trackSection.id, sub_block, vehicle.route.direction_id, signal_name])
     
         return(self.vehicleInfo, self.stops)
             
