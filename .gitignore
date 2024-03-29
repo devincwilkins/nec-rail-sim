@@ -5,6 +5,7 @@
 !/outputs/**/
 !/outputs/**/.gitkeep
 
+NEC_Webtool
 /simulation/outputs/**
 !/simulation/outputs/**/
 !/simulation/outputs/**/.gitkeep
