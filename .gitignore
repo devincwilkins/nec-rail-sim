@@ -6,6 +6,7 @@
 !/outputs/**/.gitkeep
 
 NEC_Webtool
+OSM
 /simulation/outputs/**
 !/simulation/outputs/**/
 !/simulation/outputs/**/.gitkeep
