@@ -18,6 +18,7 @@ class Simulation(object):
         self.blocks = []
         self.masterblocks = []
         self.trackDict = {}
+        self.sectionDict = {}
         self.masterblockDict = {}
         self.stopBlockDict = {}
         self.stopMasterblockDict = {}
@@ -35,7 +36,7 @@ class Simulation(object):
         self.gtfs_df = None
 
     def load(self,schedule, input_path, settings_path):
-        loadData(self, schedule, input_path, settings_path)
+        return loadData(self, schedule, input_path, settings_path)
 
     
     def run(self):
@@ -63,9 +64,9 @@ class Simulation(object):
                     location_id = vehicle.currentHeadLocation.name
                     location_distance = vehicle.currentHeadLocationDistance
                     if vehicle.route.direction_id == 0: 
-                        total_distance = (vehicle.totalDistance)
+                        track_distance = (vehicle.trackDistance)
                     else:
-                        total_distance = vehicle.route.length - (vehicle.totalDistance)
+                        track_distance = vehicle.route.length - (vehicle.trackDistance)
                     block_speed = vehicle.updateMaxSpeed()
                 except Exception as e: 
                     try: 
@@ -75,20 +76,17 @@ class Simulation(object):
                         location_id = None
                         block_speed = None
                     location_distance = None
-                    total_distance = (vehicle.totalDistance)
                 try:
-                    master_block = vehicle.masterBlock.id
                     sub_block = vehicle.subBlock.id,
                 except:
-                    master_block = None
                     sub_block = None
                 try:
                     signal_name = vehicle.relatedSignal.name
                 except:
                     signal_name = ''
                 self.vehicleInfo.append([self.currentTime,vehicle.id,vehicle.route.id,vehicle.state, vehicle.currentSpeed,vehicle.goalSpeed,vehicle.currentTrack.id, \
-                    block_speed,location_id,location_distance, total_distance, vehicle.trackSection.id, sub_block, vehicle.route.direction_id, signal_name])
+                    block_speed,location_id,location_distance, vehicle.trackDistance, vehicle.trackSection.id, sub_block, vehicle.route.direction_id, signal_name])
     
-        return(self.vehicleInfo, self.stops)
+        return(self.vehicleInfo)
             
 

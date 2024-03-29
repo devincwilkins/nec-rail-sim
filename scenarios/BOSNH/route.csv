@@ -1,0 +1,11 @@
+Route_id,Event_list,Route_desc,Direc,Pair_id,Express_service
+1,"BS-2,SS-1,SS-2,SS-3,SS-4,SS-5,SS-6,SS-7,SS-8,SS-9,SS-10,SS-11,SS-12,SS-13",ProvidenceLocal,0,2,0
+2,"BS-2,SS-1,SS-2,SS-3,SS-4,SS-5,SS-6,SS-7,SS-8,SS-9,SS-10,SS-11,SS-12,SS-13,SS-14,SS-15",ProvidenceWickford,0,1,0
+3,"BS-4,SS-16,SS-17,SS-18",Stoughton,0,4,0
+4,"BS-2,SS-1,SS-2,SS-6,SS-13,SS-26",IntercityAmtrak,0,3,0
+5,"BS-2,SS-1,SS-2,SS-3,SS-4,SS-5,SS-6,SS-7",StoughtonCompetitive,0,4,0
+6,"BS-2,SS-1,SS-2,SS-6,SS-13",AmtrakFirstLeg,0,3,0
+7,"BS-2,SS-1,SS-2,SS-3,SS-4,SS-5",FranklinCompetitive,0,4,0
+8,"BS-2,SS-1,SS-2,SS-6,SS-13,CP-1,CP-2,CP-3,SS-28",AmtrakReRoute,0,3,0
+12,"BS-2,SS-1,SS-2,SS-6,SS-13,SS-26",AmtrakOGRoute,0,3,0
+10,"BS-2,SS-1,SS-2,SS-6,SS-13,CP-1,CP-2,SS-26",AmtrakReRoute2,0,3,0

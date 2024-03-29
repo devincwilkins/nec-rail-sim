@@ -1,6 +1,7 @@
 class Section(object):
-    def __init__(self,ID,length,location, max_speed,track, curvature, curve_direction, cant):
+    def __init__(self,ID, track_segment, length,location, max_speed,track, curvature, curve_direction, cant):
         self.id = ID
+        self.trackSegment = track_segment
         self.length = length
         self.location = location
         self.maxSpeed = max_speed

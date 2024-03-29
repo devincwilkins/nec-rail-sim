@@ -1,10 +1,7 @@
-﻿Scenario_id,Scenario_desc,File_name,Impossible_routes,Worcester_platform,Auburndale_platform,Newtonville_platform,WestNewton_platform,Triple_track,Riverside_spur,Mini_triple
-C,ClockfaceTest,SC/,"13,14,15,16",0,0,0,0,0,0,0
-B,Baseline,SB/,"13,14,15,16",0,0,0,0,0,0,0
-0,As Is,S0/,"13,14,15,16",0,0,0,0,0,0,0
-1,Worcester Platform,S1/,"13,14,15,16",1,0,0,0,0,0,0
-2,North Side Newtonvilleand WCP,S2/,"13,14,15,16",1,0,1,0,0,0,0
-3,North Side Newtonville and Triple Track and WCP,S3/,"13,14,",1,0,1,0,1,0,0
-4,3 North Side Newton Platforms and TT and WCP,S4/,"13,14",1,1,1,1,1,0,0
-5,"Riverside Spur, WCP",S5/,"15,16",1,0,0,0,0,1,0
-6,"Jim Edit",S6/,"",1,0,0,0,0,1,0
+﻿Scenario_id,Scenario_desc,File_name
+C,ClockfaceTest,SC/
+B,Baseline,SB/
+0,As Is,S0/
+BOSNH,Boston to New Haven,BOSNH/
+NHNY,New Haven to New York,NHNY/
+NHNY_Bypass,New Haven to New York with Bypass,NHNY_Bypass/

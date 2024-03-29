@@ -29,10 +29,11 @@ def loadData(simulation,schedule, input_path, settings_path):
     control_point_path = input_path + 'control_point.csv'
     loadGTFS(simulation, gtfs_path)
     loadTrack(simulation, block_path)
-    loadStop(simulation, stop_path)
-    loadRoute(simulation, route_path)
+    stops_output = loadStop(simulation, stop_path)
     loadControlPoint(simulation, control_point_path)
+    loadRoute(simulation, route_path)
     loadVehicle(simulation, vehicle_type_path, schedule_path)
+    return stops_output
 
 def loadGTFS(simulation,gtfs_path):
     gtfs_df = pd.read_csv(gtfs_path)
@@ -47,8 +48,6 @@ def loadStop(simulation, stop_path):
     stopList = []
     stopDict = {}
     stopNameDict = {}
-    aheadBlockDict = defaultdict(dict)
-
     for row in stop_df.itertuples():
         ID = row.Stop_id
         name = row.Stop_name
@@ -62,26 +61,31 @@ def loadStop(simulation, stop_path):
         west_bound = row.West_bound
         stop_location = [int(round(float(i))) for i in row.Stop_location.split(',')]
         stop_time = [int(round(float(i))) for i in row.Stop_location.split(',')]
-        stop_aheadBlock = aheadBlockDict[ID]
         max_speed = row.Max_speed
         track = row.Track
-        new_stop = Stop(ID,name,opposite_stop,max_dwell,min_dwell,turnaround_time,capacity,length, east_bound, west_bound, stop_location,stop_time, stop_aheadBlock, max_speed, track)
+        new_stop = Stop(ID,name,opposite_stop,max_dwell,min_dwell,turnaround_time,capacity,length, east_bound, west_bound, stop_location,stop_time, max_speed, track)
         stopList.append(new_stop)
         stopDict[ID] = new_stop
         stopNameDict[name] = new_stop
     simulation.stops = stopList
     simulation.stopDict = stopDict
     simulation.stopNameDict = stopNameDict
+    return(stop_df)
 
 
 def loadTrack(simulation, track_path):
-    track_df = pd.read_csv(track_path)
+    dtype = {"Section_id": str}
+    track_df = pd.read_csv(track_path, dtype = dtype)
+    # dtype = {"Name": str, "Phone Number": str, "Age": str}
+    # # Read the CSV file with specified data types
+    # df = pd.read_csv("data.csv", dtype=dtype)
     # track_df = track_df.sort_values(by=['Track_id', 'Start_location'],ascending=True).reset_index()
     trackList = []
     track_collect = []
     prev_track = None
-    for idx, row in track_df.iterrows(): #[::-1]
-        ID = row.Section_id
+    for idx, row in track_df.iterrows():
+        ID = str(row.Section_id)
+        track_segment = row.Track_segment
         length = float(row.End_location - row.Start_location)
         location = row.Start_location
         max_speed = 320
@@ -89,12 +93,11 @@ def loadTrack(simulation, track_path):
         curvature = row.Curve_degree
         curve_direction = row.Curve_direction
         cant = row.Cant
-        new_section = Section(ID,length,location, max_speed,track, curvature, curve_direction, cant)
+        new_section = Section(ID,track_segment,length,location, max_speed,track, curvature, curve_direction, cant)
+        simulation.sectionDict[ID]=new_section
         if idx == track_df.index[-1]:
-            print("collecting track " + str(prev_track))
             components = track_collect
-            print(str(len(components)) + " components ")
-            new_track = Track(track,components) #ID is wrong
+            new_track = Track(track,components)
             simulation.trackDict[track] = new_track
             trackList.append(new_track)
             prev_track = None
@@ -103,15 +106,32 @@ def loadTrack(simulation, track_path):
             track_collect.append(new_section)
             prev_track = track
         else:
-            print("collecting track " + str(prev_track))
             components = track_collect
-            new_track = Track(prev_track,components) #ID is wrong
-            print(str(len(components)) + " components ")
+            new_track = Track(prev_track,components)
             simulation.trackDict[prev_track] = new_track
             trackList.append(new_track)
             prev_track = None
             track_collect = []
     simulation.tracks = trackList
+
+def loadControlPoint(simulation, control_point_path):
+    signal_df = pd.read_csv(control_point_path)
+    controlPointDict = {}
+
+    for row in signal_df.itertuples():
+        ID = row.id
+        name = row.Name
+        control_track = simulation.trackDict[int(row.Control_track)]
+        control_track_location = row.Control_track_location
+        ahead_track = simulation.trackDict[row.Ahead_track]
+        ahead_track_location = row.Ahead_track_location
+        ahead_track_segment = row.Ahead_track_segment
+        direction = row.Direction
+        speed = row.Speed
+        new_control_point = ControlPoint(ID,name,control_track,control_track_location,ahead_track,ahead_track_location,ahead_track_segment,direction,speed)
+        simulation.controlPoints.append(new_control_point)
+        controlPointDict[ID] = new_control_point
+    simulation.controlPointDict = controlPointDict
 
 def loadRoute(simulation, route_path):
     # list in sequence all stops and blocks that this route will pass
@@ -133,6 +153,10 @@ def loadRoute(simulation, route_path):
             #create new event
             type = event.split('-')[0]
             code = event.split('-')[1]
+            try:
+                location = event.split('-')[2]
+            except:
+                location = '0'
             if type == 'SS':
                 #code translates to stop id
                 stop_id = code
@@ -140,32 +164,21 @@ def loadRoute(simulation, route_path):
                 new_event = StationStop(count,stop_object)
             elif type == 'BS':
                 #code translates to track to begin on
-                track_id = code #grab track object?
+                track_id = code
+                start_block = simulation.sectionDict[location]
                 track_object = simulation.trackDict[int(track_id)]
-                new_event = BeginService(count,track_object)
+                new_event = BeginService(count,track_object,start_block)
             elif type == 'CP':
-                #code translates to track to switch to
-                track = code
-                new_event = ControlPointManeuver(count,track_object)
+                #code translates to track to control point ID
+                control_point_id = code
+                control_point_object = simulation.controlPointDict[int(control_point_id)]
+                new_event = ControlPointManeuver(count, control_point_object)
             eventDict[count] = new_event
             event_object_list.append(new_event)
         components = event_object_list
-        new_route = Route(ID,name,components,direction_id)
+        new_route = Route(ID,name,components,direction_id,start_block)
         routeDict[ID] = new_route
     simulation.routeDict = routeDict
-
-
-def loadControlPoint(simulation, control_point_path):
-    signal_df = pd.read_csv(control_point_path)
-
-    for row in signal_df.itertuples():
-        ID = row.id
-        direction = row.Direction
-        type = row.Type
-        if type == 'Control Point':
-            name = row.Name
-            new_control_point = ControlPoint(ID,name,direction)
-            simulation.controlPoints.append(new_control_point)
                 
 
 def loadVehicle(simulation, vehicle_type_path, schedule_path):

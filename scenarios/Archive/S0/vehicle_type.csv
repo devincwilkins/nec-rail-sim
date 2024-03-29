@@ -1,3 +1,0 @@
-Vehicle_type,Max_speed,Max_acc,Max_dec,Normal_dec,Capacity,Vehicle_length,Ideal_speed,Ideal_speed_var,Station_speed
-1,20,1,-1,-1,500,90,10,0.1,5
-2,200,1,-1,-1,500,90,100,0.1,25

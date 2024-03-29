@@ -1,5 +1,5 @@
 class Stop(object):
-    def __init__(self,ID,name,opposite_stop,max_dwell,min_dwell,turnaround_time,capacity,length,east_bound, west_bound,stop_slot_distance,stop_slot_time, ahead_block,max_speed, track):
+    def __init__(self,ID,name,opposite_stop,max_dwell,min_dwell,turnaround_time,capacity,length,east_bound, west_bound,stop_slot_distance,stop_slot_time, max_speed, track):
         self.id = ID
         self.name = name
         self.oppositeStopID = opposite_stop
@@ -16,7 +16,6 @@ class Stop(object):
         self.stopSlotDistances = stop_slot_distance     # locations of vehicle head stop point               
         self.vehicles = []
         self.occupied = False
-        self.aheadBlock = ahead_block
         self.maxSpeed = max_speed
         self.track = track
 

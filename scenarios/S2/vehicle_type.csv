@@ -1,2 +1,0 @@
-Vehicle_type,Vehicle_name,a,b,c,Power,Mass,Initial_acceleration,Max_cant_deficiency,Max_speed,Signal_system,Brake_coefficient,Max_acc,Max_dec,Normal_dec,Capacity,Vehicle_length,Ideal_speed,Ideal_speed_var,Station_speed
-1,FLIRT,212.5,0.771604938,0.003858025,2000000,123400,0.9,5,41.67,MB,0.09,1,-1,-1,500,90,5,0.1,5

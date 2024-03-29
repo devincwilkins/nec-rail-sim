@@ -22,11 +22,11 @@ time_step = int(settings_dict['time_step'])
 
 def run_simulation(start_time,end_time, time_step,input_path, settings_path):
     s = Simulation(start_time,end_time,time_step)
-    s.load(settings,input_path, settings_path)
+    stop_df = s.load(settings,input_path, settings_path)
     print('loading complete')
-    vehicle_info, stops = s.run()
+    vehicle_info = s.run()
     print('run complete')
-    outputFigs(out_path, vehicle_info, stops)
+    outputFigs(out_path, vehicle_info, stop_df)
     print('output complete')
 
 run_simulation(start_time,end_time, time_step,input_path, settings_path)

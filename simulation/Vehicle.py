@@ -3,6 +3,7 @@ from Event import *
 from Track import Section
 from scipy import integrate
 import numpy as np
+import math
 
 #Global Variables
 g = 9.8 #gravitational constant in m/s^2
@@ -43,7 +44,7 @@ class Vehicle(object):
         self.futureEvents = self.route.components           # update when vehicle tail leaves a block or stop
         self.passengers = []
 
-        self.currentTrack = 5 #set to 7 for OB's and 5 for IB's
+        self.currentTrack = None #set to 7 for OB's and 5 for IB's
         self.currentSpeed = 0
         self.currentAcceleration = 0
         self.nextSpeed = 0
@@ -71,7 +72,8 @@ class Vehicle(object):
         self.mass = mass
         self.brakeCoef = brake_coef
         self.brakePower = brake_power
-        self.segment_index = 0
+        self.segment_index = int(self.route.start_block.trackSegment)
+        self.trackDistance = self.route.start_block.location
 
     def checkSignals(self):
         #This needs to absorb all the differences in the possible signalling systems!
@@ -89,24 +91,28 @@ class Vehicle(object):
                 + self.trackResistance[2]*(v**2))/self.mass
 
     def getNextAcceleration(self):
+        running_resistance = self.runningResistance()
         if self.currentSpeed != 0:
-            normalAcceleration = (self.power/self.mass)/self.currentSpeed
-            acceleration = min(normalAcceleration,self.initialAcceleration)
+            normalAcceleration = (self.power/self.mass)/self.currentSpeed - running_resistance
+            # acceleration = min(normalAcceleration ,self.initialAcceleration)
+            acceleration = +1 / max(1/normalAcceleration ,1/self.initialAcceleration)
         else:
             acceleration = self.initialAcceleration
-        running_resistance = self.runningResistance()
-        # print("acceleration is " + str(acceleration - running_resistance))
-        return acceleration - running_resistance
+        # print(f"acceleration is {acceleration:>6.2f} - V: {self.currentSpeed:>6.2f}")
+        return acceleration 
     
     def getNextDeceleration(self):
-        normalDeceleration = -1*((self.brakePower/self.mass)/self.currentSpeed)
-        deceleration = min(normalDeceleration,-1*self.initialAcceleration)
         running_resistance = self.runningResistance()
-        # print("deceleration is " + str(deceleration + running_resistance))
-        return deceleration + running_resistance
+        normalDeceleration = ((self.power/self.mass)/self.currentSpeed) + running_resistance 
+        deceleration = -1 / max(1/normalDeceleration ,1/self.initialAcceleration)
+        # print(f"deceleration is {deceleration:>6.2f} - V: {self.currentSpeed:>6.2f}")
+        return deceleration 
 
     def updateDecelDistance(self, vf):
-        func = lambda x : max((x**2)/(self.brakePower/self.mass + 0.0059*x + 0.000118*x**2 + 0.000022*x**3),x/self.mass)
+        func = lambda x : max((x**2)/(self.power/self.mass + \
+            (self.trackResistance[0]/self.mass)*x + (self.trackResistance[1]/self.mass)*x**2 + \
+                (self.trackResistance[2]/self.mass)*x**3),x/self.initialAcceleration)
+
         def integratel(f,a,b,n):
             a1 = float(a)
             b1 = float(b)
@@ -114,8 +120,8 @@ class Vehicle(object):
             for i in range(0,n):
                 y = y + f(a1 + (b1-a1)*i/n)
             return y*(b1-a1)/n
-        braking_distance = integratel(func,vf,self.currentSpeed,1000)
-        return braking_distance
+        braking_distance = integratel(func,vf,self.currentSpeed,60)
+        return max(0,braking_distance)
     
     def calculateSectionSpeed(self, section):
         tg = 4.7 #track gauge
@@ -146,9 +152,8 @@ class Vehicle(object):
             # print('my initial trackSection is: ' + str(self.trackSection.id))
             # print('the first trackSection is: ' + str(self.currentTrack.components[0].id))
             # print('the second trackSection is: ' + str(self.currentTrack.components[1].id))
-            # exit()
             #  'Prepare to pull in' -> 'Dwell at station'
-            if currentTime >= self.pullinTime: #and stop.occupied == False: 
+            if currentTime >= self.pullinTime and abs(self.trackDistance - stop.eastBound) < 100: #and stop.occupied == False: 
                 self.state = 'Dwell at station'
                 self.newState = True
                 self.currentHeadLocation = stop
@@ -159,6 +164,22 @@ class Vehicle(object):
                     stop.setVehicleStopSlot(self)
                 self.nextTailLocationDistance = self.nextHeadLocationDistance - self.length
                 self.futureEvents = self.route.components[1:]
+            #   'Prepare to pull in' -> 'Constrained Move'
+            #   'Prepare to pull in' -> 'Free Move'
+            elif currentTime >= self.pullinTime:
+                self.state = 'Free move'
+                self.newState = True
+                self.currentHeadLocation = self.route.start_block
+                self.currentTailLocation = self.route.start_block
+                self.nextHeadLocation = self.route.start_block
+                self.nextTailLocation = self.route.start_block
+                self.nextTailLocationDistance = self.nextHeadLocationDistance - self.length
+                self.futureEvents = self.route.components[1:]
+            #   'Prepare to pull in' -> 'Move and stop at station'
+            # elif isinstance(self.futureEvents[0],StationStop) and \
+            #         brake_distance >= self.futureEvents[0].stop.eastBound - self.trackDistance: 
+            #     self.state = 'Move and stop at station'
+            #     self.newState = True
             #  'Prepare to pull in'-> 'Prepare to pull in'
             else:
                 self.state = 'Prepare to pull in'
@@ -176,12 +197,10 @@ class Vehicle(object):
                     self.state = 'Ready to pull out'
                     self.newState = True
                 elif self.expectedDwellTime <= 0:#len(self.route_sequence) == 0: #and there are NO routes left in route sequence
-                    print("check 3")
                     self.state = 'Ready to pull out'
                     self.newState = True             
                 #  'Dwell at station' -> 'Turn around'
                 elif self.expectedDwellTime <= 0 and currentTime < self.pulloutTime:
-                    print("check 2")
                     self.state = 'Turn around'
                     self.newState = True
                 #  'Dwell at station' -> 'Dwell at station'
@@ -193,7 +212,6 @@ class Vehicle(object):
                 if self.expectedDwellTime <= 0 and self.signalAspect == 'g':
                     self.state = 'Free move'
                     self.newState = True
-                    # print("clearing event: " + str(self.futureEvents[0]))
                     self.futureEvents = self.futureEvents[1:]
                 # 'Dwell at station' -> 'Constrained move'
                 if self.expectedDwellTime <= 0 and self.signalAspect == 'y':
@@ -224,12 +242,43 @@ class Vehicle(object):
             #  'Free move' -> 'Move and stop at station'
             #if self.nextEvent == "stop at station(?_)"
             elif isinstance(self.futureEvents[0],StationStop) and \
-                    brake_distance >= self.futureEvents[0].stop.eastBound - self.totalDistance: 
+                    brake_distance >= self.futureEvents[0].stop.eastBound - self.trackDistance: 
                 self.state = 'Move and stop at station'
+                self.newState = True
+            elif isinstance(self.futureEvents[0],ControlPointManeuver) and \
+                    self.updateDecelDistance(self.futureEvents[0].controlPoint.speed) >= \
+                        self.futureEvents[0].controlPoint.controlTrackLocation - self.trackDistance: 
+                # print("CP Location is " + str(self.futureEvents[0].controlPoint.controlTrackLocation))
+                # print("decel distance is " + str(self.updateDecelDistance(self.futureEvents[0].controlPoint.speed)))
+                # print("track distance is " + str(self.trackDistance))
+                self.state = 'Decelerate to Control Point'
                 self.newState = True
             #  'Free move' -> 'Free move'
             else: 
                 self.state = 'Free move'
+
+        elif self.state == 'Maneuver at Control Point': 
+            if self.expectedOperationTime <= 0 and self.signalAspect == 'g':
+                control_point = self.futureEvents[0].controlPoint
+                self.currentTrack = control_point.aheadTrack
+                self.trackDistance = control_point.aheadTrackLocation
+                #locate segment index from location?
+                self.segment_index = control_point.aheadTrackSegment
+                self.trackSection = self.currentTrack.components[self.segment_index]
+                self.nextTrackSection = self.trackSection
+                #deal with trackSection and segment_index too!
+                self.state = 'Free move'
+                self.newState = True
+                self.futureEvents = self.futureEvents[1:]
+            else:
+                self.state = 'Maneuver at Control Point'
+
+        elif self.state == 'Decelerate to Control Point':
+            if self.currentSpeed <= self.goalSpeed and self.futureEvents[0].controlPoint.controlTrackLocation - self.trackDistance <= 0:
+                self.state = 'Maneuver at Control Point'
+                self.newState = True
+            else:
+                self.state = 'Decelerate to Control Point' 
 
 
         # 'Constrained move' case
@@ -374,7 +423,7 @@ class Vehicle(object):
             elif self.currentSpeed == self.goalSpeed:
                 self.nextAcceleration = 0
             else:
-                    self.nextAcceleration = self.getNextDeceleration()
+                self.nextAcceleration = self.getNextDeceleration()
             # move
             self.move(timestep)
 
@@ -478,7 +527,36 @@ class Vehicle(object):
                 self.expectedPulloutTime -= timestep
             if self.expectedPulloutTime <= 0:
                 self.deactivate(simulation)
-                print("deactivate check 2")
+        
+        elif self.state == 'Maneuver at Control Point':
+            if self.currentSpeed < self.goalSpeed:
+                if self.currentSpeed + self.getNextAcceleration() * timestep <= self.goalSpeed:
+                    self.nextAcceleration = self.getNextAcceleration()
+            elif self.currentSpeed == self.goalSpeed:
+                self.nextAcceleration = 0
+            else:
+                self.nextAcceleration = self.getNextDeceleration()
+            if self.newState == True:
+                self.track = self.futureEvents[0].controlPoint.aheadTrack
+                self.expectedOperationTime = self.length/self.currentSpeed
+                self.newState = False
+            else:
+                self.expectedOperationTime -= timestep
+            # move
+            self.move(timestep)
+
+        elif self.state == 'Decelerate to Control Point':
+            if self.currentSpeed < self.goalSpeed:
+                if self.currentSpeed + self.getNextAcceleration() * timestep <= self.goalSpeed:
+                    self.nextAcceleration = self.getNextAcceleration()
+            elif self.currentSpeed == self.goalSpeed:
+                self.nextAcceleration = 0
+            else:
+                self.nextAcceleration = self.getNextDeceleration()
+            if self.newState == True:
+                self.newState = False
+            # move
+            self.move(timestep)
 
     def update(self, simulation):
         '''
@@ -487,11 +565,13 @@ class Vehicle(object):
         update related signal of vehicle
         '''
 
-        if self.nextHeadLocation == None:    # terminal station case (pull in/pull out/turn around))
+        if self.nextHeadLocation == None:    # terminal station case (pull in/pull out/turn around)) #NOT here
             self.currentHeadLocation = self.nextHeadLocation
             self.currentTailLocation = self.nextTailLocation
             self.totalDistance = 0 #What is the meaning of this line?
+            # self.trackDistance = 0 #MOD HERE
             return
+        
         # enter a new block
         # enter stop case realized in action function
         if self.nextHeadLocation != self.currentHeadLocation:
@@ -508,8 +588,6 @@ class Vehicle(object):
         # self.currentHeadLocationDistance = self.nextHeadLocationDistance
         self.currentTailLocation = self.nextTailLocation
         self.currentTailLocationDistance = self.nextTailLocationDistance
-        # print("Future Events? " + str(self.futureEvents))
-        # self.currentTrack = self.currentHeadLocation.track #whats goin on here
         self.trackSection = self.nextTrackSection
         # self.goalSpeed = self.updateMaxSpeed()
         if self.trackSection not in self.currentTrack.components:
@@ -542,18 +620,19 @@ class Vehicle(object):
         new_speed = None
         new_distance = None
         priority_deceleration_distance = 0
-        while distance_to_i < self.updateDecelDistance(0) and len(self.currentTrack.components) > (self.segment_index + i):
+        while distance_to_i < (self.updateDecelDistance(0) + 1000) and len(self.currentTrack.components) > (self.segment_index + i):
             next_section = self.currentTrack.components[self.segment_index + i]
-            distance_to_i = next_section.location - self.totalDistance
+            distance_to_i = next_section.location - self.trackDistance
             next_section_speed = self.calculateSectionSpeed(next_section)
             if next_section_speed < self.currentSpeed: 
                 new_speed = next_section_speed 
                 new_deceleration_distance = self.updateDecelDistance(new_speed)
                 new_distance = distance_to_i
-                if new_deceleration_distance + 80 >= new_distance:
+
+                if new_deceleration_distance + self.currentSpeed >= new_distance: #if distance needed to decelerate to speed of upcoming slow zone is more than the distance to the zone
                     if new_deceleration_distance > priority_deceleration_distance: #set as 'most urgent' or 'controlling' curve 
                         priority_deceleration_distance = new_deceleration_distance
-                        final_speed = new_speed #returning NoneType
+                        final_speed = new_speed
             i += 1
         if priority_deceleration_distance > 0:
             need_to_decelerate = True
@@ -562,8 +641,11 @@ class Vehicle(object):
         return(need_to_decelerate, final_speed)
 
     def setGoalSpeed(self):
-        decelerate_for_curve,decelerate_to_speed = self.detectSpeedShifts()
-        if decelerate_for_curve == True:
+        decelerate_for_curve,decelerate_to_speed = self.detectSpeedShifts() 
+        if self.state == 'Decelerate to Control Point' or self.state == 'Maneuver at Control Point':
+            return(min(self.futureEvents[0].controlPoint.speed,self.updateMaxSpeed()))
+        elif decelerate_for_curve == True:
+            self.nextAcceleration = self.getNextDeceleration() #FLAG???
             return(decelerate_to_speed)
         else:
             return(self.updateMaxSpeed())
@@ -578,7 +660,14 @@ class Vehicle(object):
         self.movement = self.currentSpeed * timestep + 0.5 * self.nextAcceleration * timestep * timestep
         # update the total distance along the trip
         self.totalDistance += self.movement
-        if self.totalDistance + self.movement > (self.trackSection.location + self.trackSection.length): #if advanced to next block
+        self.trackDistance += self.movement
+        # print("current speed is " + str(self.currentSpeed))
+        # print("next acceleration is " + str(self.nextAcceleration))
+        # print("new movement is " + str(self.movement))
+        # print("new trackDistance is " + str(self.trackDistance))
+        if math.isnan(self.trackDistance):
+            exit()
+        if self.trackDistance + self.movement > (self.trackSection.location + self.trackSection.length): #if advanced to next block
             # self.headFutureRoute = self.headFutureRoute[1:]
             self.segment_index += 1
             try:
