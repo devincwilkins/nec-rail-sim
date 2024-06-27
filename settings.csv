@@ -14,4 +14,3 @@ consider_routes,"1,2,5,6,7,8,17,18,39,40,41,42",0,1,routes desired for considera
 local_elasticity,0.5,0,1,ridership elasticity of additional local service
 express_elasticity,0.7,0,1,ridership elasticity of additional express service
 peakiness_constant,1.5,0,1,minimum proportion of off-peak service vs peak service 
-min_hth,2,0,1,minimum number of Heart-to-Hub express services
