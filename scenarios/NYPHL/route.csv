@@ -1,0 +1,7 @@
+Route_id,Event_list,Route_desc,Direc,Pair_id,Express_service,Vehicle_type
+1,"BS-1,SS-1,SS-2,SS-3,SS-4",Intercity,0,,0,3
+2,"BS-1-74,SS-3,SS-5,SS-6,SS-7,SS-8,SS-9,SS-10,SS-11,SS-12,SS-13,SS-14,SS-4",Local,0,,0,1
+3,"BS-1,SS-1,SS-18,SS-2,SS-19,SS-20,SS-21,SS-22,SS-23,SS-24,SS-25,SS-26,SS-27",Local_NJ,0,,0,1
+4,"BS-1,SS-1,SS-2,SS-4",Intercity,0,,0,3
+5,"BS-1,SS-1,SS-18,SS-2,SS-24,SS-27,SS-28,SS-29,SS-30,SS-3",Xpress_Commuter,0,,0,1
+6,"BS-1,SS-1,SS-18,SS-2,SS-19,SS-20,SS-21,SS-22,SS-23",Overlap_NJT,0,,0,1

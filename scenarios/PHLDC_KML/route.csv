@@ -1,0 +1,5 @@
+Route_id,Event_list,Route_desc,Direc,Pair_id,Express_service,Vehicle_type
+1,"BS-1,SS-1,SS-20",Direct,0,,0,3
+2,"BS-1,SS-1,SS-17,SS-20,SS-34",Intercity,0,,0,3
+3,"BS-2,SS-21,SS-2,CP-1,SS-3,SS-4,SS-5,SS-6,SS-7,SS-8,SS-9,SS-10,SS-11,SS-12,SS-13,SS-14,SS-15,SS-16,SS-17,SS-18,SS-19",Local_SEPTA,0,,0,1
+4,"BS-1-87,SS-22,SS-23,SS-24,SS-25,SS-20,SS-27,SS-28,SS-29,SS-30,SS-31,SS-32,SS-33,SS-34",Local_MARC,0,,0,1

@@ -30,11 +30,11 @@ def outputFigs(out_path, vehicleInfo, stop_df):
         unique_tracks = set(output_vehicle.track.unique().tolist())
         num_tracks = len(unique_tracks)
 
-        NCOLS = 3
+        NCOLS = 2 #3
         NROWS = num_tracks//NCOLS + 1 if num_tracks > NCOLS else 1
         DICT_COLORS = { route_id:f'C{i}' for i,route_id in enumerate(output_vehicle.route.unique())}
 
-        fig, ax_arr = plt.subplots(figsize=(10,6*NROWS), ncols=NCOLS,nrows=NROWS, sharex=True, sharey=False)
+        fig, ax_arr = plt.subplots(figsize=(20,10*NROWS), ncols=NCOLS,nrows=NROWS, sharex=True, sharey=False)
      
         # for ax in ax_arr.flatten():
         for i,track in enumerate(unique_tracks):

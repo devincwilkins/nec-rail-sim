@@ -20,14 +20,12 @@ def loadData(simulation,schedule, input_path, settings_path):
 
     # input_path =  str(Path(__file__).parent.parent) + '/scenarios/' + inputs_dict[scenario]
 
-    gtfs_path = input_path + 'gtfs_output.csv'
     block_path = input_path + 'track.csv'
     route_path = input_path + 'route.csv'
     schedule_path = input_path + 'schedule.csv'
     stop_path = input_path + 'stop.csv'
     vehicle_type_path = input_path + 'vehicle_type.csv'
     control_point_path = input_path + 'control_point.csv'
-    loadGTFS(simulation, gtfs_path)
     loadTrack(simulation, block_path)
     stops_output = loadStop(simulation, stop_path)
     loadControlPoint(simulation, control_point_path)
@@ -35,9 +33,6 @@ def loadData(simulation,schedule, input_path, settings_path):
     loadVehicle(simulation, vehicle_type_path, schedule_path)
     return stops_output
 
-def loadGTFS(simulation,gtfs_path):
-    gtfs_df = pd.read_csv(gtfs_path)
-    simulation.gtfs_df = gtfs_df
 
 def loadEvent(simulation, event_path):
     None
@@ -76,10 +71,6 @@ def loadStop(simulation, stop_path):
 def loadTrack(simulation, track_path):
     dtype = {"Section_id": str}
     track_df = pd.read_csv(track_path, dtype = dtype)
-    # dtype = {"Name": str, "Phone Number": str, "Age": str}
-    # # Read the CSV file with specified data types
-    # df = pd.read_csv("data.csv", dtype=dtype)
-    # track_df = track_df.sort_values(by=['Track_id', 'Start_location'],ascending=True).reset_index()
     trackList = []
     track_collect = []
     prev_track = None
@@ -134,15 +125,16 @@ def loadControlPoint(simulation, control_point_path):
     simulation.controlPointDict = controlPointDict
 
 def loadRoute(simulation, route_path):
-    # list in sequence all stops and blocks that this route will pass
     route_df = pd.read_csv(route_path)
     routeDict = {}
     eventDict = {}
 
     for row in route_df.itertuples():
+        first = True
         ID = row.Route_id
         name = row.Route_desc
         direction_id = row.Direc
+        route_type =  row.Route_type
         if pd.isna(row.Event_list) == False:
             eventList = row.Event_list.split(',')
         else:
@@ -158,25 +150,26 @@ def loadRoute(simulation, route_path):
             except:
                 location = '0'
             if type == 'SS':
-                #code translates to stop id
                 stop_id = code
                 stop_object = simulation.stopDict[int(stop_id)]
                 new_event = StationStop(count,stop_object)
+                if first == True:
+                    first_stop = stop_object
+                    first = False
+                last_stop = stop_object
             elif type == 'BS':
-                #code translates to track to begin on
                 track_id = code
                 start_block = simulation.sectionDict[location]
                 track_object = simulation.trackDict[int(track_id)]
                 new_event = BeginService(count,track_object,start_block)
             elif type == 'CP':
-                #code translates to track to control point ID
                 control_point_id = code
                 control_point_object = simulation.controlPointDict[int(control_point_id)]
                 new_event = ControlPointManeuver(count, control_point_object)
             eventDict[count] = new_event
             event_object_list.append(new_event)
         components = event_object_list
-        new_route = Route(ID,name,components,direction_id,start_block)
+        new_route = Route(ID,name,components,direction_id,start_block,route_type,first_stop,last_stop)
         routeDict[ID] = new_route
     simulation.routeDict = routeDict
                 
@@ -196,7 +189,6 @@ def loadVehicle(simulation, vehicle_type_path, schedule_path):
             route_sequence.append(simulation.routeDict[route])
         pullout_time = int(row.Pullout_time)
         pullin_time = int(row.Pullin_time)
-        if_turn_around = row.If_turnaround
         max_speed = row.Max_speed
         max_acc = row.Max_acc
         max_dec = row.Max_dec

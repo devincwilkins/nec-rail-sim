@@ -5,3 +5,10 @@ B,Baseline,SB/
 BOSNH,Boston to New Haven,BOSNH/
 NHNY,New Haven to New York,NHNY/
 NHNY_Bypass,New Haven to New York with Bypass,NHNY_Bypass/
+NYPHL,Jersey,NYPHL/
+NHPHL,Jersey,NHPHL/
+PHLBAL,Jersey,PHLBAL/
+BALDC,Maryland,BALDC/
+PHLDC,Maryland,PHLDC/
+PHLDC_KML,Maryland,PHLDC_KML/
+FOX,Foxborough,FOX/

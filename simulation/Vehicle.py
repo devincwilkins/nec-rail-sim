@@ -76,12 +76,11 @@ class Vehicle(object):
         self.trackDistance = self.route.start_block.location
 
     def checkSignals(self):
-        #This needs to absorb all the differences in the possible signalling systems!
-        #Each signal system should be its own class with its own signalling system, with a function that simply returns "proceed", "slow", "stop"?
+        #This function needs to absorb all the differences in the possible signalling systems
+        #Each signal system should be its own class with its own signalling system, with a function that returns "g", "y", "r"
         None
 
     def dwellAtStation(self):
-        #Does this work for a time based sim?
         None
 
     def runningResistance(self):
@@ -142,6 +141,7 @@ class Vehicle(object):
         return(track_speed)
     
     def transitionState(self,currentTime):
+        print(self.state)
         #  'Prepare to pull in' case
         if self.state == 'Prepare to pull in':
             track = self.route.components[0].track
@@ -149,9 +149,6 @@ class Vehicle(object):
             self.currentTrack = track
             self.trackSection = self.currentTrack.components[self.segment_index]
             self.nextTrackSection = self.trackSection
-            # print('my initial trackSection is: ' + str(self.trackSection.id))
-            # print('the first trackSection is: ' + str(self.currentTrack.components[0].id))
-            # print('the second trackSection is: ' + str(self.currentTrack.components[1].id))
             #  'Prepare to pull in' -> 'Dwell at station'
             if currentTime >= self.pullinTime and abs(self.trackDistance - stop.eastBound) < 100: #and stop.occupied == False: 
                 self.state = 'Dwell at station'
@@ -242,7 +239,7 @@ class Vehicle(object):
             #  'Free move' -> 'Move and stop at station'
             #if self.nextEvent == "stop at station(?_)"
             elif isinstance(self.futureEvents[0],StationStop) and \
-                    brake_distance >= self.futureEvents[0].stop.eastBound - self.trackDistance: 
+                    brake_distance > self.futureEvents[0].stop.eastBound - self.trackDistance: 
                 self.state = 'Move and stop at station'
                 self.newState = True
             elif isinstance(self.futureEvents[0],ControlPointManeuver) and \

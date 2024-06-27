@@ -66,20 +66,23 @@ class Stop(object):
                     available_capacity -= 1
                 else:
                     p.deniedBoard()
-        dwell_time = self.calDwellTime(num_alighting,num_boarding)
-        return self.MinDwell
+        dwell_time = self.calDwellTime(vehicle,num_alighting,num_boarding)
+        return dwell_time
                 
 
-    def calDwellTime(self,num_alighting,num_boarding):
-        return self.MinDwell
+    def calDwellTime(self,vehicle,num_alighting,num_boarding):
+        if len(vehicle.futureEvents) <= 1 \
+            or len(vehicle.futureEvents)>= 1000:
+                return 1  
+        elif vehicle.route.type == 'IC': #intercity trains dwell twice as long as commuter trains
+            return self.MinDwell*2
+        else:
+            return self.MinDwell
+        
 
     
     def updateOccupancy(self):
         if self.stopSlots[-1] == None:
             self.occupied = False
-        #elif len(self.vehicles) == 0 #and this stop is skippped on this route, 
-            #self.occupied = False
         else:
-            # if self.id == 3:
-            #     print("stop Framingham occupied by" + str(self.stopSlots[-1].id))
             self.occupied = True 
