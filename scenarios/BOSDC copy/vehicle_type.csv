@@ -1,0 +1,4 @@
+Vehicle_type,Vehicle_name,a,b,c,Power,Mass,Initial_acceleration,Max_cant_deficiency,Max_speed,Signal_system,Brake_power,Brake_coefficient,Max_acc,Max_dec,Normal_dec,Capacity,Vehicle_length,Ideal_speed,Ideal_speed_var,Station_speed
+1,FLIRT,2754,36,0.648,2000000,123400,1.2,6,41.67,MB,2000000,0.09,1,-1,-1,500,90,5,0.1,5
+2,Velaro_Novo_360,2454.4,49.088,9.152,6600000,416000,0.65,6,88.89,MB,7000000,0.09,1,-1,-1,500,90,5,0.1,5
+3,Velaro_Novo_AC,2754,36,0.648,8000000,416000,0.65,6,88.89,MB,7000000,0.09,1,-1,-1,500,90,5,0.1,5

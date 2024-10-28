@@ -1,8 +1,7 @@
 class Stop(object):
-    def __init__(self,ID,name,opposite_stop,max_dwell,min_dwell,turnaround_time,capacity,length,east_bound, west_bound,stop_slot_distance,stop_slot_time, max_speed, track):
+    def __init__(self,ID,name,max_dwell,min_dwell,turnaround_time,capacity,length,east_bound, west_bound,stop_slot_distance,stop_slot_time, max_speed, track):
         self.id = ID
         self.name = name
-        self.oppositeStopID = opposite_stop
         self.MaxDwell = max_dwell
         self.MinDwell = min_dwell
         self.turnaroundTime = turnaround_time

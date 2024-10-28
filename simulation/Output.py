@@ -10,7 +10,7 @@ import numpy as np
 def outputFigs(out_path, vehicleInfo, stop_df):
         #vehicle output spreadsheet
         output_vehicle = pd.DataFrame(vehicleInfo,\
-        columns=['time','id','route','state','speed','goal_speed','track', \
+        columns=['time','id','route_id','route_name','state','speed','goal_speed','track', \
                     'speed_limit','location_id','location_distance', 'track_distance', 'master_block','sub_block','route_direction','signal'])
         #edit out 'Prepare to Pull-in' state
         output_vehicle = output_vehicle[output_vehicle.state != 'Prepare to pull in']
@@ -32,7 +32,7 @@ def outputFigs(out_path, vehicleInfo, stop_df):
 
         NCOLS = 2 #3
         NROWS = num_tracks//NCOLS + 1 if num_tracks > NCOLS else 1
-        DICT_COLORS = { route_id:f'C{i}' for i,route_id in enumerate(output_vehicle.route.unique())}
+        DICT_COLORS = { route_name:f'C{i}' for i,route_name in enumerate(output_vehicle.route_name.unique())}
 
         fig, ax_arr = plt.subplots(figsize=(20,10*NROWS), ncols=NCOLS,nrows=NROWS, sharex=True, sharey=False)
      
@@ -54,7 +54,7 @@ def outputFigs(out_path, vehicleInfo, stop_df):
             aux_output_df = output_vehicle.sort_values(['id','time'],ascending=True).query(f"track_distance!=0 and track=={track:0.0f}")
             for name, group in aux_output_df.groupby('track_route_segment'): # .groupby('route')
                 # group.plot(kind='scatter',x='time',y='track_distance', ax=aux_ax) #label = routeDict[name].name
-                aux_ax.plot(group.time,group.track_distance, color=DICT_COLORS.get(group.route.iloc[0])) #label = routeDict[name].name
+                aux_ax.plot(group.time,group.track_distance, color=DICT_COLORS.get(group.route_name.iloc[0])) #label = routeDict[name].name
             #filter stops information to each track
                 
                 
@@ -75,8 +75,8 @@ def outputFigs(out_path, vehicleInfo, stop_df):
         # fig.legend(handles, labels, loc='upper center')
         
 
-        handles = [Line2D([0],[0],color=DICT_COLORS.get(route_id), label=str(route_id)) for route_id in DICT_COLORS]
-        labels = [str(route_id) for route_id in DICT_COLORS]
+        handles = [Line2D([0],[0],color=DICT_COLORS.get(route_name), label=str(route_name)) for route_name in DICT_COLORS]
+        labels = [str(route_name) for route_name in DICT_COLORS]
         if num_tracks > NCOLS:
             ax_arr[0][NCOLS-1].legend(handles,labels,bbox_to_anchor=(1.0,1.0))
         else:

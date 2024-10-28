@@ -3,12 +3,17 @@ C,ClockfaceTest,SC/
 B,Baseline,SB/
 0,As Is,S0/
 BOSNH,Boston to New Haven,BOSNH/
+BOSNH_nu,Boston to New Haven,BOSNH_nu/
 NHNY,New Haven to New York,NHNY/
 NHNY_Bypass,New Haven to New York with Bypass,NHNY_Bypass/
 NYPHL,Jersey,NYPHL/
 NHPHL,Jersey,NHPHL/
+NHDC,Jersey,NHDC/
+BOSDC,Jersey,BOSDC/
+NHPHLBAL,Jersey,NHPHLBAL/
 PHLBAL,Jersey,PHLBAL/
 BALDC,Maryland,BALDC/
 PHLDC,Maryland,PHLDC/
 PHLDC_KML,Maryland,PHLDC_KML/
 FOX,Foxborough,FOX/
+Final,Final,Final/

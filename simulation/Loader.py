@@ -38,7 +38,7 @@ def loadEvent(simulation, event_path):
     None
 
 
-def loadStop(simulation, stop_path):
+def loadStop(simulation, stop_path): #edit to allow one paltform to serve multiple stops
     stop_df = pd.read_csv(stop_path, dtype = {'Stop_location': str})
     stopList = []
     stopDict = {}
@@ -46,11 +46,10 @@ def loadStop(simulation, stop_path):
     for row in stop_df.itertuples():
         ID = row.Stop_id
         name = row.Stop_name
-        opposite_stop = row.Opposite_stop_id
         max_dwell = row.Max_dwell
         min_dwell = row.Min_dwell
-        turnaround_time = row.Turnaround_time
-        capacity = row.Capacity
+        turnaround_time = row.Turn_time
+        capacity = int(row.Capacity)
         length = float(row.Length)
         east_bound = row.East_bound
         west_bound = row.West_bound
@@ -58,7 +57,7 @@ def loadStop(simulation, stop_path):
         stop_time = [int(round(float(i))) for i in row.Stop_location.split(',')]
         max_speed = row.Max_speed
         track = row.Track
-        new_stop = Stop(ID,name,opposite_stop,max_dwell,min_dwell,turnaround_time,capacity,length, east_bound, west_bound, stop_location,stop_time, max_speed, track)
+        new_stop = Stop(ID,name,max_dwell,min_dwell,turnaround_time,capacity,length, east_bound, west_bound, stop_location,stop_time, max_speed, track)
         stopList.append(new_stop)
         stopDict[ID] = new_stop
         stopNameDict[name] = new_stop
@@ -77,8 +76,8 @@ def loadTrack(simulation, track_path):
     for idx, row in track_df.iterrows():
         ID = str(row.Section_id)
         track_segment = row.Track_segment
-        length = float(row.End_location - row.Start_location)
-        location = row.Start_location
+        length = float(row.End_loc - row.Start_loc)
+        location = row.Start_loc
         max_speed = 320
         track = row.Track_id
         curvature = row.Curve_degree
