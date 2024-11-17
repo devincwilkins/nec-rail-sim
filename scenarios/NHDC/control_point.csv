@@ -1,8 +1,0 @@
-Name,id,Control_track,Control_track_location,Ahead_track,Ahead_track_location,Ahead_track_segment,Direction,Speed,Notes
-CP-1,1,1,89700,2,0,0,1,33.11,
-CP-2,2,3,89700,2,0,0,1,33.11,
-CP-3,3,3,89700,1,89700,124,1,33.11,
-CP-4,4,1,63000,3,63000,88,1,44,
-CP-5,5,3,100300,1,100300,149,1,44,
-CP-6,6,1,103000,3,103000,149,1,44,
-CP-212-13,8,1,96000,3,96000,136,1,44,
