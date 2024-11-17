@@ -85,7 +85,7 @@ class Simulation(object):
                 except:
                     signal_name = ''
                 self.vehicleInfo.append([self.currentTime,vehicle.id,vehicle.route.id,vehicle.route.name,vehicle.state, vehicle.currentSpeed,vehicle.goalSpeed,vehicle.currentTrack.id, \
-                    block_speed,location_id,location_distance, vehicle.trackDistance, vehicle.trackSection.id, sub_block, vehicle.route.direction_id, signal_name])
+                    block_speed,location_id,location_distance, vehicle.trackDistance, vehicle.totalDistance, vehicle.trackSection.id, sub_block, vehicle.route.direction_id, signal_name])
     
         return(self.vehicleInfo)
             
