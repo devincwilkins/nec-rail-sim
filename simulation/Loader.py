@@ -38,7 +38,7 @@ def loadEvent(simulation, event_path):
     None
 
 
-def loadStop(simulation, stop_path): #edit to allow one paltform to serve multiple stops
+def loadStop(simulation, stop_path):
     stop_df = pd.read_csv(stop_path, dtype = {'Stop_location': str})
     stopList = []
     stopDict = {}
@@ -51,13 +51,15 @@ def loadStop(simulation, stop_path): #edit to allow one paltform to serve multip
         turnaround_time = row.Turn_time
         capacity = int(row.Capacity)
         length = float(row.Length)
-        east_bound = row.East_bound
-        west_bound = row.West_bound
-        stop_location = [int(round(float(i))) for i in row.Stop_location.split(',')]
-        stop_time = [int(round(float(i))) for i in row.Stop_location.split(',')]
+        east_bound = row.East_bound_1
+        west_bound = row.West_bound_1
+        try:
+            stop_location = [int(round(float(i))) for i in row.Stop_loc.split(',')]
+        except: 
+            stop_location = [int(round(row.Stop_loc))]
         max_speed = row.Max_speed
-        track = row.Track
-        new_stop = Stop(ID,name,max_dwell,min_dwell,turnaround_time,capacity,length, east_bound, west_bound, stop_location,stop_time, max_speed, track)
+        track = row.Track_1
+        new_stop = Stop(ID,name,max_dwell,min_dwell,turnaround_time,capacity,length, east_bound, west_bound, stop_location,max_speed, track)
         stopList.append(new_stop)
         stopDict[ID] = new_stop
         stopNameDict[name] = new_stop
@@ -70,6 +72,8 @@ def loadStop(simulation, stop_path): #edit to allow one paltform to serve multip
 def loadTrack(simulation, track_path):
     dtype = {"Section_id": str}
     track_df = pd.read_csv(track_path, dtype = dtype)
+    #sort by Track_id then by Track_Segment
+    track_df.sort_values(by=['Track_id','Track_segment'], inplace=True)
     trackList = []
     track_collect = []
     prev_track = None
@@ -77,31 +81,35 @@ def loadTrack(simulation, track_path):
         ID = str(row.Section_id)
         track_segment = row.Track_segment
         length = float(row.End_loc - row.Start_loc)
-        location = row.Start_loc
-        max_speed = 320
+        start_location = row.Start_loc
+        end_location = row.End_loc
+        max_speed = row.Max_speed
         track = row.Track_id
         curvature = row.Curve_degree
         curve_direction = row.Curve_direction
         cant = row.Cant
-        new_section = Section(ID,track_segment,length,location, max_speed,track, curvature, curve_direction, cant)
+        new_section = Section(ID,track_segment,length,start_location, end_location, max_speed,track, curvature, curve_direction, cant)
         simulation.sectionDict[ID]=new_section
-        if idx == track_df.index[-1]:
+        if idx == track_df.index[-1]: #if last row
             components = track_collect
             new_track = Track(track,components)
             simulation.trackDict[track] = new_track
             trackList.append(new_track)
             prev_track = None
             track_collect = []
-        elif prev_track == track or prev_track == None:
-            track_collect.append(new_section)
-            prev_track = track
-        else:
-            components = track_collect
-            new_track = Track(prev_track,components)
+        elif prev_track == track or prev_track == None: #if track id is same as previous row OR reset just performed
+            track_collect.append(new_section) #append section to track
+            prev_track = track #set this track id to be the "previous" one to compare it to 
+        else: #if track id does not match previous row (start new track object and package the old one)
+            components = track_collect #components are everything collected in previous step
+            new_track = Track(prev_track,components) 
             simulation.trackDict[prev_track] = new_track
             trackList.append(new_track)
-            prev_track = None
+            # ^^^^^^ close one Track
+            # vvvvvv assign first row next track
+            prev_track = track
             track_collect = []
+            track_collect.append(new_section)
     simulation.tracks = trackList
 
 def loadControlPoint(simulation, control_point_path):
@@ -111,14 +119,15 @@ def loadControlPoint(simulation, control_point_path):
     for row in signal_df.itertuples():
         ID = row.id
         name = row.Name
-        control_track = simulation.trackDict[int(row.Control_track)]
+        control_track = simulation.trackDict[row.Control_track]
         control_track_location = row.Control_track_location
+        control_track_segment = row.Control_track_segment
         ahead_track = simulation.trackDict[row.Ahead_track]
         ahead_track_location = row.Ahead_track_location
-        ahead_track_segment = row.Ahead_track_segment
+        ahead_track_segment = int(row.Ahead_track_segment)
         direction = row.Direction
         speed = row.Speed
-        new_control_point = ControlPoint(ID,name,control_track,control_track_location,ahead_track,ahead_track_location,ahead_track_segment,direction,speed)
+        new_control_point = ControlPoint(ID,name,control_track,control_track_location,control_track_segment,ahead_track,ahead_track_location,ahead_track_segment,direction,speed)
         simulation.controlPoints.append(new_control_point)
         controlPointDict[ID] = new_control_point
     simulation.controlPointDict = controlPointDict
@@ -158,8 +167,18 @@ def loadRoute(simulation, route_path):
                 last_stop = stop_object
             elif type == 'BS':
                 track_id = code
-                start_block = simulation.sectionDict[location]
-                track_object = simulation.trackDict[int(track_id)]
+                #because its not consistent whether to index for segment_id or global_id 
+                #I would prefer to index for segment id
+                #so to get start block, get track object get components [0]
+                track_object = simulation.trackDict[track_id]
+                if direction_id == 0:
+                    start_block = track_object.components[0]
+                elif direction_id == 1:
+                    start_block = track_object.components[-1]
+                else:
+                    print("Error: route direction id not valid")
+                    exit()
+                # start_block = simulation.sectionDict[location]
                 new_event = BeginService(count,track_object,start_block)
             elif type == 'CP':
                 control_point_id = code
