@@ -1,9 +1,10 @@
 ## Large files
 .DS_*
 */cache
-# /outputs/**
-# !/outputs/**/
-# !/outputs/**/.gitkeep
+/outputs/**
+!/outputs/**/
+!/outputs/**/.gitkeep
+*.csv
 
 NEC_Webtool
 OSM
