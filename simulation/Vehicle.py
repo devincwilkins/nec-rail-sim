@@ -384,10 +384,6 @@ class Vehicle(object):
             if self.expectedTurnAroundTime <= 0 and self.route.components[0].occupied == False:
                 self.state = 'Dwell at station'
                 self.newState = True
-                # self.currentHeadLocation = self.route.components[0]
-                # self.currentTailLocation = self.route.components[0]
-                # self.nextHeadLocation = self.route.components[0]
-                # self.nextTailLocation = self.route.components[0]
                 self.stopLocationId, self.nextHeadLocationDistance = \
                 self.route.components[0].setVehicleStopSlot(self)
                 self.nextTailLocationDistance = self.nextHeadLocationDistance - self.length
@@ -715,17 +711,21 @@ class Vehicle(object):
         BRAKE_DIST = self.updateDecelDistance(0)
 
         ## CALCULATE DISTANCE TO NEXT STOP
-        distance_to_next_stop = (self.stopsSequence[self.stops_idx].eastBound + self.stopsSequence[self.stops_idx].length/2) - self.trackDistance
         #something not working here, why is new haven being detected as early as kingston?
         if self.stopsSequence[self.stops_idx].track != self.currentTrack.id:
-            distance_to_next_stop = (
-                ((self.stopsSequence[self.stops_idx].eastBound + self.stopsSequence[self.stops_idx].length/2) - self.trackRefLocations[self.stopsSequence[self.stops_idx].track]['start']) +
-                (self.trackRefLocations[self.currentTrack.id]['end'] - self.trackDistance)
-            )
-            print(f"param 1: {(self.stopsSequence[self.stops_idx].eastBound + self.stopsSequence[self.stops_idx].length/2)}")
-            print(f"param 2: {self.trackRefLocations[self.stopsSequence[self.stops_idx].track]['start']}")
-            print(f"param 3: {self.trackRefLocations[self.currentTrack.id]['end']}")
-            print(f"param 4: {self.trackDistance}")
+            distance_to_next_stop = self.trackSection.endLocation - self.trackDistance
+            for elem in self.trackSequence[self.track_idx:]:
+                if elem.track == self.stopsSequence[self.stops_idx].track:
+                    if self.stopsSequence[self.stops_idx].eastBound <= elem.endLocation:
+                        distance_to_next_stop += self.stopsSequence[self.stops_idx].eastBound - elem.startLocation
+                        break
+                    else:
+                        distance_to_next_stop += elem.length
+                else:
+                    distance_to_next_stop += elem.length
+                if distance_to_next_stop > BRAKE_DIST:
+                    distance_to_next_stop = np.inf
+                    break
         else:
             distance_to_next_stop = (self.stopsSequence[self.stops_idx].eastBound + self.stopsSequence[self.stops_idx].length/2) - self.trackDistance
 

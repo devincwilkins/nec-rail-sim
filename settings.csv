@@ -1,6 +1,6 @@
 ﻿attribute,value,simulation,scheduler,description
 start_time,0,1,0,"desired start time of day, in seconds"
-end_time,30000,1,0,"desired end time of day, in seconds"
+end_time,20000,1,0,"desired end time of day, in seconds"
 time_step,1,1,0,desired step time (recommended: 1 second)
 scenario,Final,1,1,desired scenario (see inputs_description.csv)
 schedule,schedule.csv,1,0,desired schedule file (ensure compatibility with scenario)
